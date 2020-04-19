@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -11,54 +12,96 @@ namespace test
 {
     public static class AttributeShapefile
     {
-        public static void updateAttributetoSupport(ref Shapefile shapefile, XmlNodeList listSupportsNode, MappingAttribute mapping_attribute)
+        public static void updateAttributetoSupportLayer(ref Shapefile shapefile, supportAttribute supportNode)
         {
-            shapefile.Attributes.Table.Clear();
-            int index_row = 1;
-            foreach (XmlNode SupportsNode in listSupportsNode)
-            {
-                foreach (XmlNode SupportNode in SupportsNode)
-                {
-                    DataRow newRow = shapefile.Attributes.Table.NewRow();
+           
+            DataRow newRow = shapefile.Attributes.Table.NewRow();
 
-                    string zeroColumnName = "PROPRIETE";
-                    string idColumnName = "ID";
-                    if (!shapefile.Attributes.Table.Columns.Contains(zeroColumnName))
-                    {
-                        DataColumn zeroColumn = new DataColumn(zeroColumnName, typeof(string));
-                        zeroColumn.MaxLength = 50;
-                        shapefile.Attributes.Table.Columns.Add(zeroColumn);
-                    }
-                    if (!shapefile.Attributes.Table.Columns.Contains(idColumnName))
-                    {
-                        DataColumn idColumn = new DataColumn(idColumnName, typeof(string));
-                        idColumn.MaxLength = 50;
-                        shapefile.Attributes.Table.Columns.Add(idColumn);
-                    }
-                    newRow[zeroColumnName] = "ENEDIS";
-                    newRow[idColumnName] = index_row++;
-                    foreach (XmlNode attributeNode in SupportNode)
-                    {
-                        //Console.WriteLine(attributeNode.Name + ":" + attributeNode.InnerText);
-                        string columName = mapping_attribute.Mapping(attributeNode.Name).ToUpper();
-                        string nodeValue = attributeNode.InnerText;
-                        int index_comma = nodeValue.IndexOf(",");
-                        if (index_comma >= 0)
-                        {
-                            nodeValue = nodeValue.Replace(',', '.');
-                        }
-                        if (!shapefile.Attributes.Table.Columns.Contains(columName))
-                        {
-                            DataColumn newCol = new DataColumn(columName, typeof(string));
-                            newCol.MaxLength = 50;
-                            shapefile.Attributes.Table.Columns.Add(newCol);
-                        }
-                        newRow[columName] = nodeValue;
-                    }
-                    shapefile.Attributes.Table.Rows.Add(newRow);
+            //reflection
+            var properties = supportNode.GetType().GetProperties();
+            foreach (PropertyInfo prp in properties)
+            {
+                string name = prp.Name;
+                object value = prp.GetValue(supportNode, new object[] { });
+                //Console.WriteLine(attributeNode.Name + ":" + attributeNode.InnerText);
+                string columName = name.ToUpper();
+                string nodeValue = "";
+                if(value != null)
+                    nodeValue= value.ToString();
+                int index_comma = nodeValue.IndexOf(",");
+                if (index_comma >= 0)
+                {
+                    nodeValue = nodeValue.Replace(',', '.');
                 }
-                break;
+                if (!shapefile.Attributes.Table.Columns.Contains(columName))
+                {
+                    DataColumn newCol = new DataColumn(columName, typeof(string));
+                    newCol.MaxLength = 50;
+                    shapefile.Attributes.Table.Columns.Add(newCol);
+                }
+                newRow[columName] = nodeValue;
             }
+            shapefile.Attributes.Table.Rows.Add(newRow);
+        }
+
+        public static void updateAttributetoCableLayer(ref Shapefile shapefile, cableAttribute cableNode)
+        {
+            DataRow newRow = shapefile.Attributes.Table.NewRow();
+
+            //reflection
+            var properties = cableNode.GetType().GetProperties();
+            foreach (PropertyInfo prp in properties)
+            {
+                string name = prp.Name;
+                object value = prp.GetValue(cableNode, new object[] { });
+                //Console.WriteLine(attributeNode.Name + ":" + attributeNode.InnerText);
+                string columName = name.ToUpper();
+                string nodeValue = "";
+                if (value != null)
+                    nodeValue = value.ToString();
+                int index_comma = nodeValue.IndexOf(",");
+                if (index_comma >= 0)
+                {
+                    nodeValue = nodeValue.Replace(',', '.');
+                }
+                if (!shapefile.Attributes.Table.Columns.Contains(columName))
+                {
+                    DataColumn newCol = new DataColumn(columName, typeof(string));
+                    newCol.MaxLength = 50;
+                    shapefile.Attributes.Table.Columns.Add(newCol);
+                }
+                newRow[columName] = nodeValue;
+            }
+            shapefile.Attributes.Table.Rows.Add(newRow);
+        }
+
+        public static void updateAttributetoZoneLayer(ref Shapefile shapefile, zoneAttribute zoneNode)
+        {
+            DataRow newRow = shapefile.Attributes.Table.NewRow();
+            var properties = zoneNode.GetType().GetProperties();
+            foreach (PropertyInfo prp in properties)
+            {
+                string name = prp.Name;
+                object value = prp.GetValue(zoneNode, new object[] { });
+                //Console.WriteLine(attributeNode.Name + ":" + attributeNode.InnerText);
+                string columName = name.ToUpper();
+                string nodeValue = "";
+                if (value != null)
+                    nodeValue = value.ToString();
+                int index_comma = nodeValue.IndexOf(",");
+                if (index_comma >= 0)
+                {
+                    nodeValue = nodeValue.Replace(',', '.');
+                }
+                if (!shapefile.Attributes.Table.Columns.Contains(columName))
+                {
+                    DataColumn newCol = new DataColumn(columName, typeof(string));
+                    newCol.MaxLength = 50;
+                    shapefile.Attributes.Table.Columns.Add(newCol);
+                }
+                newRow[columName] = nodeValue;
+            }
+            shapefile.Attributes.Table.Rows.Add(newRow);
         }
     }
 }
