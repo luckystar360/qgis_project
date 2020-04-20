@@ -19,10 +19,12 @@ namespace test
 {
     public partial class Form1 : Form
     {
+        private string default_prj_in = @"qgis_file\default_input.prj";
+
         private string default_prj_out = @"qgis_file\default_output.prj";
         private string default_qgs = @"qgis_file\default_project.qgs";
 
-        private string default_support_shp = @"qgis_file\shape_file_default\Supports.shp";
+        private string default_support_shp = @"qgis_file\shape_file_default\SUPPORT.shp";
         private string default_lignes_shp = @"qgis_file\shape_file_default\Lignes.shp";
 
         private string support_folder = @"qgis_file\Support";
@@ -51,7 +53,9 @@ namespace test
             mapping_attribute = new MappingAttribute();
             pcm_reader = new PCMReader();
 
+            info_input = ProjectionInfo.Open(default_prj_in);
             info_output = ProjectionInfo.Open(default_prj_out);
+
             if (!mapping_attribute.readFileExcel(mapping_file))
             {
                 //mapping_data = mapping_attribute.mapping_data;
@@ -119,7 +123,8 @@ namespace test
                 if (pcm_reader != null)
                 {
                     shapefile = Shapefile.OpenFile(default_support_shp);
-                    info_input = shapefile.Projection;
+                    shapefile.Reproject(info_input);
+                    //info_input = shapefile.Projection;
                     shapefile.Features.Clear();
 
 
@@ -133,7 +138,7 @@ namespace test
                         //feature.
                         shapefile.Features.Add(feature);
                     }
-                    shapefile.Reproject(info_output);//change coordinator
+                    //shapefile.Reproject(info_output);//change coordinator
 
                     //get zone postion
                     foreach (var feature in shapefile.Features.ToList())
@@ -154,14 +159,15 @@ namespace test
                             pcm_reader.zone_bottom_right.Y = y;
                     }
                     //end get zone position
+                    shapefile.Reproject(info_output);//change coordinator
 
-                    shapefile.Attributes.Table.Clear();
+                    shapefile.Attributes.Table = new DataTable();
                     foreach (var support_attribute in pcm_reader.list_support_attribute)
                     {
                         AttributeShapefile.updateAttributetoSupportLayer(ref shapefile, support_attribute);
                     }
 
-
+                   
 
                     if (output_folder != null)
                         shapefile.SaveAs(output_folder + "\\Ressources\\SUPPORT.shp", true);
@@ -261,7 +267,7 @@ namespace test
                     }
                     shapefile.Reproject(info_output);//change coordinator
 
-                    shapefile.Attributes.Table.Clear();
+                    shapefile.Attributes.Table = new DataTable();
                     list_ext1_ext2_conducteur = new List<string>();
                     foreach (var cable_attribute in pcm_reader.list_cable_attribute)
                     {
@@ -275,6 +281,7 @@ namespace test
 
                         AttributeShapefile.updateAttributetoCableLayer(ref shapefile, cable_attribute);
                     }
+
 
                     if (output_folder != null)
                         shapefile.SaveAs(output_folder + "\\Ressources\\CABLE.shp", true);
@@ -321,7 +328,7 @@ namespace test
 
 
                     //attribute
-                    shapefile.Attributes.Table.Clear();
+                    shapefile.Attributes.Table = new DataTable();
                     zoneAttribute zone_attr = pcm_reader.zone_attribute;
                     zone_attr.date = this.dtExport.Value.ToString();
 

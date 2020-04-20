@@ -8,7 +8,6 @@ namespace test
 {
     public class supportAttribute
     {
-        public string id { get; set; }
         public string propriete { get; set; }//
         public string nom { get; set; }
         public string exist { get; set; }
@@ -23,12 +22,15 @@ namespace test
         public string ras_terre { get; set; }//
         public string pres_ep { get; set; }
         public string etat_vis { get; set; }
+        public string gene_etiq { get; set; }
         public string mat_exis { get; set; }
         public string mat_a_pos { get; set; }
         public string a_poser { get; set; }
 
         public string x { get; set; }
         public string y { get; set; }
+
+        public string id { get; set; }
     }
 
     public class cableAttribute

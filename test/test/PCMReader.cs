@@ -118,7 +118,7 @@ namespace test
                     {
                         supportAttribute spAttribute = new supportAttribute();
                         spAttribute.propriete = "ENEDIS";
-                        spAttribute.id = (id++).ToString();
+                        
                         foreach (XmlNode attributeNode in SupportNode)
                         {
                             string nodeName = attributeNode.Name;
@@ -128,8 +128,11 @@ namespace test
                                 case "Nom":
                                     spAttribute.nom = nodeValue;
                                     break;
-                                case "optBranchementsTelExistants":
-                                    spAttribute.exist = nodeValue;
+                                case "optBandeauVertExistant"://"optBranchementsTelExistants":
+                                    if(nodeValue == "1")
+                                        spAttribute.exist = "T";
+                                    else
+                                        spAttribute.exist = "F";
                                     break;
                                 case "Nature":
                                     spAttribute.nature = nodeValue;
@@ -154,6 +157,10 @@ namespace test
                                     break;
                                 case "BranchementsTV":
                                     spAttribute.branche_tv = nodeValue;
+                                    if (nodeValue == "1")
+                                        spAttribute.gene_etiq = "T";
+                                    else
+                                        spAttribute.gene_etiq = "F";
                                     break;
                                 case "PresenceEP":
                                     spAttribute.pres_ep = nodeValue;
@@ -181,6 +188,11 @@ namespace test
                                     break;
                             }
                         }
+
+                        if (spAttribute.gene_etiq == "T")
+                            spAttribute.id = (id++).ToString();
+                        else
+                            spAttribute.id = "0";
 
                         list_support_attribute.Add(spAttribute);
                     }

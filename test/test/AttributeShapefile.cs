@@ -16,7 +16,6 @@ namespace test
         {
            
             DataRow newRow = shapefile.Attributes.Table.NewRow();
-
             //reflection
             var properties = supportNode.GetType().GetProperties();
             foreach (PropertyInfo prp in properties)
@@ -28,11 +27,11 @@ namespace test
                 string nodeValue = "";
                 if(value != null)
                     nodeValue= value.ToString();
-                int index_comma = nodeValue.IndexOf(",");
-                if (index_comma >= 0)
-                {
-                    nodeValue = nodeValue.Replace(',', '.');
-                }
+                //int index_comma = nodeValue.IndexOf(",");
+                //if (index_comma >= 0)
+                //{
+                //    nodeValue = nodeValue.Replace(',', '.');
+                //}
                 if (!shapefile.Attributes.Table.Columns.Contains(columName))
                 {
                     DataColumn newCol = new DataColumn(columName, typeof(string));
@@ -59,11 +58,11 @@ namespace test
                 string nodeValue = "";
                 if (value != null)
                     nodeValue = value.ToString();
-                int index_comma = nodeValue.IndexOf(",");
-                if (index_comma >= 0)
-                {
-                    nodeValue = nodeValue.Replace(',', '.');
-                }
+                //int index_comma = nodeValue.IndexOf(",");
+                //if (index_comma >= 0)
+                //{
+                //    nodeValue = nodeValue.Replace(',', '.');
+                //}
                 if (!shapefile.Attributes.Table.Columns.Contains(columName))
                 {
                     DataColumn newCol = new DataColumn(columName, typeof(string));
@@ -88,11 +87,11 @@ namespace test
                 string nodeValue = "";
                 if (value != null)
                     nodeValue = value.ToString();
-                int index_comma = nodeValue.IndexOf(",");
-                if (index_comma >= 0)
-                {
-                    nodeValue = nodeValue.Replace(',', '.');
-                }
+                //int index_comma = nodeValue.IndexOf(",");
+                //if (index_comma >= 0)
+                //{
+                //    nodeValue = nodeValue.Replace(',', '.');
+                //}
                 if (!shapefile.Attributes.Table.Columns.Contains(columName))
                 {
                     DataColumn newCol = new DataColumn(columName, typeof(string));

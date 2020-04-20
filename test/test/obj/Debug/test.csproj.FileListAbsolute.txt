@@ -27,4 +27,3 @@ G:\ATungdlt\QGIS\Shapefile_spatial\test\test\bin\Debug\ExcelDataReader.pdb
 G:\ATungdlt\QGIS\Shapefile_spatial\test\test\bin\Debug\ExcelDataReader.xml
 G:\ATungdlt\QGIS\Shapefile_spatial\test\test\bin\Debug\ExcelDataReader.DataSet.pdb
 G:\ATungdlt\QGIS\Shapefile_spatial\test\test\bin\Debug\ExcelDataReader.DataSet.xml
-G:\ATungdlt\QGIS\Shapefile_spatial\test\test\obj\Debug\test.csprojAssemblyReference.cache
