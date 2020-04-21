@@ -27,3 +27,30 @@ G:\ATungdlt\QGIS\Shapefile_spatial\test\test\bin\Debug\ExcelDataReader.pdb
 G:\ATungdlt\QGIS\Shapefile_spatial\test\test\bin\Debug\ExcelDataReader.xml
 G:\ATungdlt\QGIS\Shapefile_spatial\test\test\bin\Debug\ExcelDataReader.DataSet.pdb
 G:\ATungdlt\QGIS\Shapefile_spatial\test\test\bin\Debug\ExcelDataReader.DataSet.xml
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\test.exe.config
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\test.exe
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\test.pdb
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\DotSpatial.Data.dll
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\DotSpatial.Mono.dll
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\DotSpatial.Projections.dll
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\DotSpatial.Serialization.dll
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\DotSpatial.Topology.dll
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\ExcelDataReader.DataSet.dll
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\ExcelDataReader.dll
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\nunit.framework.dll
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\DotSpatial.Data.xml
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\DotSpatial.Mono.xml
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\DotSpatial.Projections.xml
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\DotSpatial.Serialization.xml
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\DotSpatial.Topology.xml
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\ExcelDataReader.pdb
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\ExcelDataReader.xml
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\ExcelDataReader.DataSet.pdb
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\ExcelDataReader.DataSet.xml
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\nunit.framework.pdb
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\nunit.framework.xml
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\obj\Debug\test.Form1.resources
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\obj\Debug\test.Properties.Resources.resources
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\obj\Debug\test.csproj.GenerateResource.Cache
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\obj\Debug\test.exe
+E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\obj\Debug\test.pdb

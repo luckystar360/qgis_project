@@ -37,6 +37,8 @@ namespace test
 
         public List<supportAttribute> list_support_attribute;
         public List<cableAttribute> list_cable_attribute;
+        public List<webAttribute> list_web_attribute;
+
         public zoneAttribute zone_attribute
         {
             get
@@ -44,7 +46,7 @@ namespace test
                 return new zoneAttribute()
                 {
                     operateur = operator_pcm,
-                    date="",
+                    date = "",
                     ref_etude = reference,
                     num_affai = pcm_num_affai,
                     nom = operating_corespondent,
@@ -61,7 +63,7 @@ namespace test
             }
         }
 
-        
+
         public bool openFile(string path)
         {
             pcm_doc = new XmlDocument();
@@ -69,10 +71,11 @@ namespace test
             {
                 pcm_doc.Load(path);
                 list_support_attribute = new List<supportAttribute>();
-                list_cable_attribute   = new List<cableAttribute>();
+                list_cable_attribute = new List<cableAttribute>();
                 parsePCMasSingleNode(pcm_doc);
                 parsePCMasSupportAttribute(pcm_doc);
                 parsePCMasCableAttribute(pcm_doc);
+                parsePCMasAttributeforWeb(pcm_doc);
                 return true;
             }
             catch
@@ -118,7 +121,7 @@ namespace test
                     {
                         supportAttribute spAttribute = new supportAttribute();
                         spAttribute.propriete = "ENEDIS";
-                        
+
                         foreach (XmlNode attributeNode in SupportNode)
                         {
                             string nodeName = attributeNode.Name;
@@ -129,7 +132,7 @@ namespace test
                                     spAttribute.nom = nodeValue;
                                     break;
                                 case "optBandeauVertExistant"://"optBranchementsTelExistants":
-                                    if(nodeValue == "1")
+                                    if (nodeValue == "1")
                                         spAttribute.exist = "T";
                                     else
                                         spAttribute.exist = "F";
@@ -231,15 +234,22 @@ namespace test
 
                                 //kiểm tra loại dây này nối những cột nào
                                 List<string> list_ext = new List<string>();
-                                XmlNodeList listSupportLignesBTNode = pcm_doc.SelectNodes("//LignesBT//LigneBT//Supports//Support");
-                                foreach (XmlNode nodeSupport in listSupportLignesBTNode)
+                                foreach (XmlNode nodeofLinegBT in LigneBTNode) //tìm được số khoảng cách có dây. = số cột - 1 
                                 {
-                                    list_ext.Add(nodeSupport.InnerText);
-                                }
+                                    if (nodeofLinegBT.Name == "Supports")
+                                    {
+                                        foreach (XmlNode nodeSupport in nodeofLinegBT)
+                                        {
 
+                                            if (nodeSupport.Name == "Support")
+                                                list_ext.Add(nodeSupport.InnerText);
+
+                                        }
+                                    }
+                                }
                                 if (!list_ext.Contains(cableAttribute.ext_1) || !list_ext.Contains(cableAttribute.ext_2))
                                     continue;
-                                
+
                                 //kết thúc kiểm tra
 
                                 cableAttribute.a_poser = getValueinNodeChild(LigneBTNode, "APoser");
@@ -251,6 +261,7 @@ namespace test
                                 cableAttribute.longueur = getValueinNodeChild(PorteeNode, "Longueur");
                                 cableAttribute.angle = getValueinNodeChild(PorteeNode, "Angle");
                                 cableAttribute.route = getValueinNodeChild(PorteeNode, "Route");
+                                cableAttribute.porteq = getValueinNodeChild(PorteeNode, "Porteq");
                                 list_cable_attribute.Add(cableAttribute);
 
                             }
@@ -269,10 +280,18 @@ namespace test
 
                                 //kiểm tra loại dây này nối những cột nào
                                 List<string> list_ext = new List<string>();
-                                XmlNodeList listSupportLignesBTNode = pcm_doc.SelectNodes("//LignesTCF//LigneTCF//Supports//Support");
-                                foreach (XmlNode nodeSupport in listSupportLignesBTNode)
+                                foreach (XmlNode nodeofLinegTCF in LigneTCFNode) //tìm được số khoảng cách có dây. = số cột - 1 
                                 {
-                                    list_ext.Add(nodeSupport.InnerText);
+                                    if (nodeofLinegTCF.Name == "Supports")
+                                    {
+                                        foreach (XmlNode nodeSupport in nodeofLinegTCF)
+                                        {
+
+                                            if (nodeSupport.Name == "Support")
+                                                list_ext.Add(nodeSupport.InnerText);
+
+                                        }
+                                    }
                                 }
 
                                 if (!list_ext.Contains(cableAttribute.ext_1) || !list_ext.Contains(cableAttribute.ext_2))
@@ -289,6 +308,7 @@ namespace test
                                 cableAttribute.longueur = getValueinNodeChild(PorteeNode, "Longueur");
                                 cableAttribute.angle = getValueinNodeChild(PorteeNode, "Angle");
                                 cableAttribute.route = getValueinNodeChild(PorteeNode, "Route");
+                                cableAttribute.porteq = getValueinNodeChild(PorteeNode, "Porteq");
                                 list_cable_attribute.Add(cableAttribute);
                             }
                         }
@@ -303,7 +323,85 @@ namespace test
             }
         }
 
-        
+        private void parsePCMasAttributeforWeb(XmlDocument pcm_doc)
+        {
+            try
+            {
+                list_web_attribute = new List<webAttribute>();
+
+                //tìm các loại dây có trên đoạn đó: vd:LignesBT , LignesTCF
+                XmlNodeList listLignesBTNode = pcm_doc.SelectNodes("//LignesBT");
+                foreach (XmlNode LignesBTNode in listLignesBTNode)
+                {
+                    if (LignesBTNode.ParentNode.Name != "Etude")
+                        continue;
+                    foreach (XmlNode LigneBTNode in LignesBTNode) //tìm được số khoảng cách có dây. = số cột - 1 
+                    {
+                        webAttribute webAttribute = new webAttribute();
+                        webAttribute.cable = getValueinNodeChild(LigneBTNode, "Conducteur");
+                        webAttribute.portee_eq = getValueinNodeChild(LigneBTNode, "Porteq");
+                        webAttribute.type = "BT";
+                        //kiểm tra loại dây này nối những cột nào
+                        foreach (XmlNode nodeofLinegBT in LigneBTNode) //tìm được số khoảng cách có dây. = số cột - 1 
+                        {
+                           
+                            if (nodeofLinegBT.Name == "Supports")
+                            {                            
+                                foreach (XmlNode nodeSupport in nodeofLinegBT)
+                                {
+
+                                    if (nodeSupport.Name == "Support" && !webAttribute.list_support.Contains(nodeSupport.InnerText))
+                                        webAttribute.list_support += nodeSupport.InnerText + " , ";
+
+                                }
+                                
+                            }
+                           
+                        }
+                        list_web_attribute.Add(webAttribute);
+                    }
+                }
+
+                XmlNodeList listLignesTCFNode = pcm_doc.SelectNodes("//LignesTCF");
+                foreach (XmlNode LignesTCFNode in listLignesTCFNode)
+                {
+                    if (LignesTCFNode.ParentNode.Name != "Etude")
+                        continue;
+                    foreach (XmlNode LigneTCFNode in LignesTCFNode) //tìm được số khoảng cách có dây. = số cột - 1 
+                    {
+                        webAttribute webAttribute = new webAttribute();
+                        webAttribute.cable = getValueinNodeChild(LigneTCFNode, "Cable");
+                        webAttribute.portee_eq = getValueinNodeChild(LigneTCFNode, "Porteq");
+                        webAttribute.type = "Telecom";
+                        //kiểm tra loại dây này nối những cột nào
+                        foreach (XmlNode nodeofLinegTCF in LigneTCFNode) //tìm được số khoảng cách có dây. = số cột - 1 
+                        {
+
+                            if (nodeofLinegTCF.Name == "Supports")
+                            {
+                                foreach (XmlNode nodeSupport in nodeofLinegTCF)
+                                {
+
+                                    if (nodeSupport.Name == "Support" && !webAttribute.list_support.Contains(nodeSupport.InnerText))
+                                        webAttribute.list_support += nodeSupport.InnerText + " , ";
+
+                                }
+
+                            }
+
+                        }
+
+                        list_web_attribute.Add(webAttribute);
+                    }
+                }
+
+                //kết thúc tìm các loại dây. nếu có thêm loại nào nữa thì thêm vào bên trên
+            }
+            catch
+            {
+                MessageBox.Show("Cannot get cable attribute", "Error");
+            }
+        }
 
         private string getValueinNodeChild(XmlNode node, string name)
         {
@@ -339,7 +437,7 @@ namespace test
                 return "FO";
             else if (conducteur.Contains("BT"))
                 return "I";
-            else if (conducteur.Contains("/") ||conducteur.Contains("-"))
+            else if (conducteur.Contains("/") || conducteur.Contains("-"))
                 return "TV";
             else
                 return "N";

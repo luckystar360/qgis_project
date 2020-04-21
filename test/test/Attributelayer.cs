@@ -46,6 +46,7 @@ namespace test
         public string x_etiq { get; set; }
         public string y_etiq { get; set; }
         public string z_etiq { get; set; }
+        public string porteq { get; set; }
     }
 
     public class zoneAttribute
@@ -64,5 +65,24 @@ namespace test
         public string insee { get; set; }
         public string be { get; set; }
         public string distrener { get; set; }
+    }
+
+    public class webAttribute
+    {
+        public webAttribute()
+        {
+            cable = "";
+            type = "";
+            list_support = "";
+            portee_eq = "";
+            reference = "";
+            param = "";
+        }
+        public string cable { get; set; }
+        public string type { get; set; }
+        public string list_support { get; set; }
+        public string portee_eq { get; set; }
+        public string reference { get; set; }
+        public string param { get; set; }
     }
 }

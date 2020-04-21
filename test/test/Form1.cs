@@ -28,12 +28,15 @@ namespace test
         private string default_lignes_shp = @"qgis_file\shape_file_default\Lignes.shp";
 
         private string support_folder = @"qgis_file\Support";
+        private string style_css = @"qgis_file\style.css";
 
         private string mapping_file = @"qgis_file\MAPPING.xlsx";
 
         private string source_cadastre_map = "contextualWMSLegend=0&amp;crs=EPSG:3857&amp;dpiMode=7&amp;featureCount=10&amp;format=image/png&amp;layers=CP.CadastralParcel&amp;layers=CLOTURE&amp;layers=HYDRO&amp;layers=DETAIL_TOPO&amp;layers=VOIE_COMMUNICATION&amp;layers=BU.Building&amp;layers=BORNE_REPERE&amp;maxHeight=800&amp;maxWidth=1200&amp;styles&amp;styles&amp;styles&amp;styles&amp;styles&amp;styles&amp;styles&amp;url=https://inspire.cadastre.gouv.fr/scpc";// /31507.wms?";
 
         private string output_folder;
+        private string input_folder;
+        private string photos_folder_input;
 
         const double zone_space_distance = 60;
 
@@ -82,6 +85,8 @@ namespace test
                 if (pcmOpenFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     output_folder = Path.GetDirectoryName(pcmOpenFileDialog.FileName) + "\\Livrable";
+                    input_folder = Path.GetDirectoryName(pcmOpenFileDialog.FileName); //chua pcm
+                    photos_folder_input = pcmOpenFileDialog.FileName.Split(new char[] { '.' })[0] + "_Photos";
                     pcm_doc = new XmlDocument();
                     try
                     {
@@ -101,6 +106,8 @@ namespace test
 
                             this.txtDirSource.Text = pcmOpenFileDialog.FileName;
                         }
+
+                        this.btnExport.Enabled = true;
 
                         //selectForm_Commited(null);
                     }
@@ -411,7 +418,6 @@ namespace test
         }
         #endregion
 
-
         #region create support folder
         //Copy all the files & Replaces any files with the same name
         public void createSupportFolder()
@@ -433,6 +439,63 @@ namespace test
                 throw ex;
             }
         }
+
+        #endregion
+
+        #region create photos folder
+        //Copy all the files & Replaces any files with the same name
+        public void createPhotosFolder()
+        {
+            try
+            {
+                DirectoryInfo srcFolder = new DirectoryInfo(photos_folder_input);
+                string destFolder = output_folder + "\\Ressources\\Photos";
+                if (!Directory.Exists(destFolder))
+                    Directory.CreateDirectory(destFolder);
+
+                foreach (FileInfo newPath in srcFolder.GetFiles())
+                {
+                    foreach(var attribute in pcm_reader.list_support_attribute)
+                    {
+                        if(newPath.Name.Contains(attribute.nom) && attribute.gene_etiq == "T")
+                        {
+                            string temppath = Path.Combine(destFolder, newPath.Name);
+                            newPath.CopyTo(temppath, true);
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Can not Create Photo Folder");
+            }
+        }
+
+        #endregion
+
+        #region create Web
+        public void createWebEtude()
+        {
+            WebGenerator.createEtudeWeb(pcm_reader, output_folder + "\\Ressources\\etude.html");
+            createCSSFile();
+        }
+
+        public void createCSSFile()
+        {
+            try
+            {
+                string destFolder = output_folder + "\\Ressources";
+                FileInfo cssFile = new FileInfo(style_css);
+                string temppath = Path.Combine(destFolder, cssFile.Name);
+                cssFile.CopyTo(temppath, true);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         #endregion
 
         private void btnExport_Click(object sender, EventArgs e)
@@ -444,7 +507,8 @@ namespace test
                 createZoneFile();
                 createQGSFile();
                 createSupportFolder();
-
+                createWebEtude();
+                createPhotosFolder();
                 MessageBox.Show("Successful!");
             }
             catch (Exception ex)
