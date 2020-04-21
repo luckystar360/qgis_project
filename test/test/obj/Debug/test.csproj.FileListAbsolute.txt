@@ -54,3 +54,33 @@ E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\obj\De
 E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\obj\Debug\test.csproj.GenerateResource.Cache
 E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\obj\Debug\test.exe
 E:\nhatdn1 Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\obj\Debug\test.pdb
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\test.exe.config
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\test.exe
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\test.pdb
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\DotSpatial.Data.dll
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\DotSpatial.Mono.dll
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\DotSpatial.Projections.dll
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\DotSpatial.Serialization.dll
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\DotSpatial.Topology.dll
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\ExcelDataReader.DataSet.dll
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\ExcelDataReader.dll
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\nunit.framework.dll
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\DotSpatial.Data.xml
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\DotSpatial.Mono.xml
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\DotSpatial.Projections.xml
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\DotSpatial.Serialization.xml
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\DotSpatial.Topology.xml
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\ExcelDataReader.pdb
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\ExcelDataReader.xml
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\ExcelDataReader.DataSet.pdb
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\ExcelDataReader.DataSet.xml
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\nunit.framework.pdb
+G:\ATungdlt\QGIS\qgis_project\test\test\bin\Debug\nunit.framework.xml
+G:\ATungdlt\QGIS\qgis_project\test\test\obj\Debug\test.Form1.resources
+G:\ATungdlt\QGIS\qgis_project\test\test\obj\Debug\test.Properties.Resources.resources
+G:\ATungdlt\QGIS\qgis_project\test\test\obj\Debug\test.csproj.GenerateResource.cache
+G:\ATungdlt\QGIS\qgis_project\test\test\obj\Debug\test.csproj.CoreCompileInputs.cache
+G:\ATungdlt\QGIS\qgis_project\test\test\obj\Debug\test.csproj.CopyComplete
+G:\ATungdlt\QGIS\qgis_project\test\test\obj\Debug\test.exe
+G:\ATungdlt\QGIS\qgis_project\test\test\obj\Debug\test.pdb
+G:\ATungdlt\QGIS\qgis_project\test\test\obj\Debug\test.csprojAssemblyReference.cache

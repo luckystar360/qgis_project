@@ -29,6 +29,7 @@ namespace test
 
         private string support_folder = @"qgis_file\Support";
         private string style_css = @"qgis_file\style.css";
+        private string logo_folder = @"qgis_file\Logo";
 
         private string mapping_file = @"qgis_file\MAPPING.xlsx";
 
@@ -145,7 +146,8 @@ namespace test
                         //feature.
                         shapefile.Features.Add(feature);
                     }
-                    //shapefile.Reproject(info_output);//change coordinator
+
+                    shapefile.Reproject(info_output);//change coordinator
 
                     //get zone postion
                     foreach (var feature in shapefile.Features.ToList())
@@ -166,7 +168,7 @@ namespace test
                             pcm_reader.zone_bottom_right.Y = y;
                     }
                     //end get zone position
-                    shapefile.Reproject(info_output);//change coordinator
+
 
                     shapefile.Attributes.Table = new DataTable();
                     foreach (var support_attribute in pcm_reader.list_support_attribute)
@@ -186,9 +188,9 @@ namespace test
                     MessageBox.Show("Import pcm file, please!", "Error");
                 }
             }
-            catch (Exception ex)
+            catch 
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                throw new Exception("Can not create support shp");
             }
         }
 
@@ -199,6 +201,7 @@ namespace test
                 if (pcm_reader != null)
                 {
                     shapefile = Shapefile.OpenFile(default_lignes_shp);
+                    shapefile.Reproject(info_input);
                     shapefile.Features.Clear();
                     List<string> list_ext1_ext2_conducteur = new List<string>();
                     foreach (var cable_attribute in pcm_reader.list_cable_attribute)
@@ -300,9 +303,9 @@ namespace test
                     MessageBox.Show("Import pcm file, please!", "Error");
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw new Exception("Can not create cable shp");
             }
         }
 
@@ -411,9 +414,9 @@ namespace test
 
                 qgsFile.Save(output_folder + "\\Livrable.qgs");
             }
-            catch (Exception ex)
+            catch 
             {
-                throw ex;
+                throw new Exception("Can not create qgs file");
             }
         }
         #endregion
@@ -434,9 +437,33 @@ namespace test
                     newPath.CopyTo(temppath, true);
                 }
             }
-            catch(Exception ex)
+            catch
             {
-                throw ex;
+                throw new Exception("Can not create support folder");
+            }
+        }
+
+        #endregion
+
+        #region create logo folder
+        //Copy all the files & Replaces any files with the same name
+        public void createLogoFolder()
+        {
+            try
+            {
+                DirectoryInfo srcFolder = new DirectoryInfo(logo_folder);
+                string destFolder = output_folder + "\\Ressources\\Logo";
+                if (!Directory.Exists(destFolder))
+                    Directory.CreateDirectory(destFolder);
+                foreach (FileInfo newPath in srcFolder.GetFiles())
+                {
+                    string temppath = Path.Combine(destFolder, newPath.Name);
+                    newPath.CopyTo(temppath, true);
+                }
+            }
+            catch 
+            {
+                throw new Exception("Can not create logo folder");
             }
         }
 
@@ -509,6 +536,7 @@ namespace test
                 createSupportFolder();
                 createWebEtude();
                 createPhotosFolder();
+                createLogoFolder();
                 MessageBox.Show("Successful!");
             }
             catch (Exception ex)

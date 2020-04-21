@@ -19,11 +19,16 @@ namespace test
         public string orientatio { get; set; }
         public string descriptio { get; set; }
         public string branche_tv { get; set; }
+        public string ras_bt { get; set; }
+        public string ras_tel { get; set; }
+        public string nb_boit_fo { get; set; }
+        public string nb_boit_co { get; set; }
+        public string nb_boit_cu { get; set; }
         public string ras_terre { get; set; }//
         public string pres_ep { get; set; }
         public string etat_vis { get; set; }
         public string gene_etiq { get; set; }
-        public string mat_exis { get; set; }
+        public string mat_exist { get; set; }
         public string mat_a_pos { get; set; }
         public string a_poser { get; set; }
 
@@ -31,6 +36,10 @@ namespace test
         public string y { get; set; }
 
         public string id { get; set; }
+
+        public string angle_pi { get; set; }
+        public string orient_pi { get; set; }
+
     }
 
     public class cableAttribute
@@ -84,5 +93,6 @@ namespace test
         public string portee_eq { get; set; }
         public string reference { get; set; }
         public string param { get; set; }
+        public string a_poser { get; set; }
     }
 }

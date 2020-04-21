@@ -122,6 +122,7 @@ namespace test
                         supportAttribute spAttribute = new supportAttribute();
                         spAttribute.propriete = "ENEDIS";
 
+                        string _Illisible = "";
                         foreach (XmlNode attributeNode in SupportNode)
                         {
                             string nodeName = attributeNode.Name;
@@ -154,6 +155,7 @@ namespace test
                                     break;
                                 case "Orientation":
                                     spAttribute.orientatio = nodeValue;
+                                    spAttribute.angle_pi = nodeValue;
                                     break;
                                 case "Commentaire":
                                     spAttribute.descriptio = nodeValue;
@@ -165,6 +167,23 @@ namespace test
                                     else
                                         spAttribute.gene_etiq = "F";
                                     break;
+
+                                case "optBoitierCoaxial":
+                                    spAttribute.nb_boit_co = nodeValue;
+                                    break;
+                                case "optBoitierFibre":
+                                    spAttribute.nb_boit_fo = nodeValue;
+                                    break;
+                                case "optBoitierCuivre":
+                                    spAttribute.nb_boit_cu = nodeValue;
+                                    break;
+
+                                case "RASBT":
+                                    spAttribute.ras_bt = nodeValue;
+                                    break;
+                                case "RASFT":
+                                    spAttribute.ras_tel = nodeValue;                                  
+                                    break;
                                 case "PresenceEP":
                                     spAttribute.pres_ep = nodeValue;
                                     break;
@@ -172,10 +191,10 @@ namespace test
                                     spAttribute.etat_vis = nodeValue;
                                     break;
                                 case "TraverseExistante1":
-                                    spAttribute.mat_exis = nodeValue;
+                                    spAttribute.mat_exist = "Traverse " + nodeValue.Replace(',','.') + "m";
                                     break;
                                 case "TraverseAPoser2":
-                                    spAttribute.mat_a_pos = nodeValue;
+                                    spAttribute.mat_a_pos = "Traverse " + nodeValue.Replace(',', '.') + "m";
                                     break;
                                 case "APoser":
                                     spAttribute.a_poser = nodeValue;
@@ -186,16 +205,47 @@ namespace test
                                 case "Y":
                                     spAttribute.y = nodeValue;
                                     break;
-
+                                case "Illisible":
+                                    _Illisible = nodeValue;
+                                    break;
                                 default:
                                     break;
                             }
                         }
 
+                        if (_Illisible == "1" || (spAttribute.annee == "" && _Illisible == "0"))
+                            spAttribute.annee = "Illisible";
+
                         if (spAttribute.gene_etiq == "T")
+                        {
                             spAttribute.id = (id++).ToString();
+                            spAttribute.mat_a_pos = "bandeau vert, " + spAttribute.mat_a_pos;
+                        }
                         else
                             spAttribute.id = "0";
+
+                        if (spAttribute.ras_tel != "0" && spAttribute.ras_tel != "")
+                            spAttribute.mat_exist = spAttribute.ras_tel + " RAS FT, " +spAttribute.mat_exist;
+                        if (spAttribute.ras_bt != "0" && spAttribute.ras_bt != "")
+                            spAttribute.mat_exist = spAttribute.ras_bt + " RAS BT, " + spAttribute.mat_exist;
+                        if (spAttribute.nb_boit_cu != "0" && spAttribute.nb_boit_cu != "")
+                            spAttribute.mat_exist = "boitier CU, " + spAttribute.mat_exist;
+                        // thieu boiter cu
+
+                        if (spAttribute.nb_boit_fo != "0" && spAttribute.nb_boit_fo != "")
+                            spAttribute.mat_a_pos = "boitier FO, " + spAttribute.mat_a_pos;
+
+                        if (spAttribute.ras_tel == "1")
+                            spAttribute.ras_tel = "T";
+                        else
+                            spAttribute.ras_tel = "F";
+
+                        if (spAttribute.ras_bt == "1")
+                            spAttribute.ras_bt = "T";
+                        else
+                            spAttribute.ras_bt = "F";
+
+                        
 
                         list_support_attribute.Add(spAttribute);
                     }
@@ -372,11 +422,14 @@ namespace test
                         webAttribute webAttribute = new webAttribute();
                         webAttribute.cable = getValueinNodeChild(LigneTCFNode, "Cable");
                         webAttribute.portee_eq = getValueinNodeChild(LigneTCFNode, "Porteq");
-                        webAttribute.type = "Telecom";
+                        webAttribute.a_poser = getValueinNodeChild(LigneTCFNode, "APoser");
+                        if (webAttribute.a_poser == "1") 
+                            webAttribute.type = "Fibre";
+                        else
+                            webAttribute.a_poser = "Telecom";
                         //kiểm tra loại dây này nối những cột nào
                         foreach (XmlNode nodeofLinegTCF in LigneTCFNode) //tìm được số khoảng cách có dây. = số cột - 1 
                         {
-
                             if (nodeofLinegTCF.Name == "Supports")
                             {
                                 foreach (XmlNode nodeSupport in nodeofLinegTCF)
