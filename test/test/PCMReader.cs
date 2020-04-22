@@ -47,7 +47,7 @@ namespace test
                 {
                     operateur = operator_pcm,
                     date = "",
-                    ref_etude = pcm_num_affai,
+                    ref_etude = (pcm_num_affai == "")? reference: pcm_num_affai,
                     num_affai = "",
                     nom = operating_corespondent,
                     telephone = phone_number,

@@ -83,7 +83,6 @@ G:\ATungdlt\QGIS\qgis_project\test\test\obj\Debug\test.csproj.CoreCompileInputs.
 G:\ATungdlt\QGIS\qgis_project\test\test\obj\Debug\test.csproj.CopyComplete
 G:\ATungdlt\QGIS\qgis_project\test\test\obj\Debug\test.exe
 G:\ATungdlt\QGIS\qgis_project\test\test\obj\Debug\test.pdb
-G:\ATungdlt\QGIS\qgis_project\test\test\obj\Debug\test.csprojAssemblyReference.cache
 E:\[01] Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug\test.exe.config
 E:\[01] Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\obj\Debug\test.exe
 E:\[01] Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\obj\Debug\test.pdb
