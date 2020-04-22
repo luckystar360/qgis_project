@@ -43,7 +43,7 @@ namespace test
 
         private static void createbody(PCMReader pcm_reader)
         {
-            string num_affaiire = pcm_reader.pcm_num_affai;
+            string ref_etude = (pcm_reader.pcm_num_affai == "") ? pcm_reader.reference : pcm_reader.pcm_num_affai;
 
             writeLine("<body>");
             writeLine("<div>");
@@ -51,7 +51,7 @@ namespace test
             writeLine("<table class='table_legende'>");
             writeLine("<tr>");
             writeLine("<td class='td_legende'>Réf.étude opérateur :</td>");
-            writeLine("<td class='td_legende'>" + num_affaiire + "</td>");
+            writeLine("<td class='td_legende'>" + ref_etude + "</td>");
             writeLine("<td class='td_legende'>N° affaire Enedis :</td>");
             writeLine("<td class='td_legende'></td>");
             writeLine("</tr>");
@@ -98,7 +98,7 @@ namespace test
             writeLine("<table class='table_legende'>");
             writeLine("<tr>");
             writeLine("<td class='td_legende'>Réf.étude opérateur :</td>");
-            writeLine("<td class='td_legende'>" + num_affaiire + "</td>");
+            writeLine("<td class='td_legende'>" + ref_etude + "</td>");
             writeLine("<td class='td_legende'>N° affaire Enedis :</td>");
             writeLine("<td class='td_legende'></td>");
             writeLine("</tr>");
