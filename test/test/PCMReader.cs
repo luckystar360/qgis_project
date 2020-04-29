@@ -47,7 +47,7 @@ namespace test
                 {
                     operateur = operator_pcm,
                     date = "",
-                    ref_etude = (pcm_num_affai == "")? reference: pcm_num_affai,
+                    ref_etude = (pcm_num_affai == "") ? reference : pcm_num_affai,
                     num_affai = "",
                     nom = operating_corespondent,
                     telephone = phone_number,
@@ -60,6 +60,10 @@ namespace test
                     be = "",
                     distrener = energy_distributor
                 };
+            }
+            set
+            {
+
             }
         }
 
@@ -108,6 +112,8 @@ namespace test
         {
             try
             {
+                List<KeyValuePair<string,string>> list_anglePI = getListAnglePIfromPortee();
+
                 XmlNodeList listSupportsNode = pcm_doc.SelectNodes("//Supports");
                 int id = 1;
                 foreach (XmlNode SupportsNode in listSupportsNode)
@@ -120,7 +126,6 @@ namespace test
                     foreach (XmlNode SupportNode in SupportsNode)
                     {
                         supportAttribute spAttribute = new supportAttribute();
-                        spAttribute.propriete = "ENEDIS";
 
                         string _Illisible = "";
                         foreach (XmlNode attributeNode in SupportNode)
@@ -155,19 +160,21 @@ namespace test
                                     break;
                                 case "Orientation":
                                     spAttribute.orientatio = nodeValue;
-                                    spAttribute.angle_pi = nodeValue;
+                                    spAttribute.orient_pi = nodeValue;
                                     break;
                                 case "Commentaire":
                                     spAttribute.descriptio = nodeValue;
                                     break;
                                 case "BranchementsTV":
                                     spAttribute.branche_tv = nodeValue;
-                                    if (nodeValue == "1")
+
+                                    break;
+                                case "NonCalcule":
+                                    if (nodeValue == "0")
                                         spAttribute.gene_etiq = "T";
                                     else
                                         spAttribute.gene_etiq = "F";
                                     break;
-
                                 case "optBoitierCoaxial":
                                     spAttribute.nb_boit_co = nodeValue;
                                     break;
@@ -182,7 +189,7 @@ namespace test
                                     spAttribute.ras_bt = nodeValue;
                                     break;
                                 case "RASFT":
-                                    spAttribute.ras_tel = nodeValue;                                  
+                                    spAttribute.ras_tel = nodeValue;
                                     break;
                                 case "PresenceEP":
                                     spAttribute.pres_ep = nodeValue;
@@ -191,7 +198,7 @@ namespace test
                                     spAttribute.etat_vis = nodeValue;
                                     break;
                                 case "TraverseExistante1":
-                                    spAttribute.mat_exist = "Traverse " + nodeValue.Replace(',','.') + "m";
+                                    spAttribute.mat_exist = "Traverse " + nodeValue.Replace(',', '.') + "m";
                                     break;
                                 case "TraverseAPoser2":
                                     spAttribute.mat_a_pos = "Traverse " + nodeValue.Replace(',', '.') + "m";
@@ -213,8 +220,9 @@ namespace test
                             }
                         }
 
-                        if (_Illisible == "1" || (spAttribute.annee == "" && _Illisible == "0"))
+                        if ((_Illisible == "1" || (spAttribute.annee == "" && _Illisible == "0")) && (spAttribute.gene_etiq == "T"))
                             spAttribute.annee = "Illisible";
+
 
                         if (spAttribute.gene_etiq == "T")
                         {
@@ -225,7 +233,7 @@ namespace test
                             spAttribute.id = "0";
 
                         if (spAttribute.ras_tel != "0" && spAttribute.ras_tel != "")
-                            spAttribute.mat_exist = spAttribute.ras_tel + " RAS FT, " +spAttribute.mat_exist;
+                            spAttribute.mat_exist = spAttribute.ras_tel + " RAS FT, " + spAttribute.mat_exist;
                         if (spAttribute.ras_bt != "0" && spAttribute.ras_bt != "")
                             spAttribute.mat_exist = spAttribute.ras_bt + " RAS BT, " + spAttribute.mat_exist;
                         if (spAttribute.nb_boit_cu != "0" && spAttribute.nb_boit_cu != "")
@@ -245,15 +253,29 @@ namespace test
                         else
                             spAttribute.ras_bt = "F";
 
-                        
+                        //propriete
+                        if (spAttribute.nom.Contains("BT"))
+                            spAttribute.propriete = "ENEDIS";
+                        else if (spAttribute.nom.Contains("FT"))
+                            spAttribute.propriete = "ORANGE";
 
+                        //angle_pi
+                        spAttribute.angle_pi = "0";
+                        foreach (var item in list_anglePI)
+                        {
+                            if(spAttribute.nom == item.Key)
+                            {
+                                spAttribute.angle_pi = item.Value;
+                                break;
+                            }    
+                        }    
                         list_support_attribute.Add(spAttribute);
                     }
                 }
             }
             catch
             {
-                MessageBox.Show("Cannot get support attribute", "Error");
+                throw new Exception("Cannot get support attribute");
             }
         }
 
@@ -307,7 +329,7 @@ namespace test
                                 else
                                     cableAttribute.a_poser = "F";
                                 cableAttribute.conducteur = getValueinNodeChild(LigneBTNode, "Conducteur");
-                                cableAttribute.type = getTypefromConducteur(cableAttribute.conducteur);
+                                cableAttribute.type = getValueinNodeChild(LigneBTNode, "TypeConducteur");
                                 cableAttribute.longueur = getValueinNodeChild(PorteeNode, "Longueur");
                                 cableAttribute.angle = getValueinNodeChild(PorteeNode, "Angle");
                                 cableAttribute.route = getValueinNodeChild(PorteeNode, "Route");
@@ -390,13 +412,19 @@ namespace test
                         webAttribute webAttribute = new webAttribute();
                         webAttribute.cable = getValueinNodeChild(LigneBTNode, "Conducteur");
                         webAttribute.portee_eq = getValueinNodeChild(LigneBTNode, "Porteq");
+                        string type_conducteur = getValueinNodeChild(LigneBTNode, "TypeConducteur");
+                        if (type_conducteur == "I")
+                            webAttribute.param = getValueinNodeChild(LigneBTNode, "Parametre") + " m à 40°C";
+                        else if (type_conducteur == "N")
+                            webAttribute.param = getValueinNodeChild(LigneBTNode, "Parametre") + " N/mm2 à 40°C";
+
                         webAttribute.type = "BT";
                         //kiểm tra loại dây này nối những cột nào
                         foreach (XmlNode nodeofLinegBT in LigneBTNode) //tìm được số khoảng cách có dây. = số cột - 1 
                         {
-                           
+
                             if (nodeofLinegBT.Name == "Supports")
-                            {                            
+                            {
                                 foreach (XmlNode nodeSupport in nodeofLinegBT)
                                 {
 
@@ -404,9 +432,9 @@ namespace test
                                         webAttribute.list_support += nodeSupport.InnerText + " , ";
 
                                 }
-                                
+
                             }
-                           
+
                         }
                         list_web_attribute.Add(webAttribute);
                     }
@@ -423,10 +451,11 @@ namespace test
                         webAttribute.cable = getValueinNodeChild(LigneTCFNode, "Cable");
                         webAttribute.portee_eq = getValueinNodeChild(LigneTCFNode, "Porteq");
                         webAttribute.a_poser = getValueinNodeChild(LigneTCFNode, "APoser");
-                        if (webAttribute.a_poser == "1") 
+                        webAttribute.param = getValueinNodeChild(LigneTCFNode, "Tension") + " daN à 15°C";
+                        if (webAttribute.a_poser == "1")
                             webAttribute.type = "Fibre";
                         else
-                            webAttribute.a_poser = "Telecom";
+                            webAttribute.type = "Telecom";
                         //kiểm tra loại dây này nối những cột nào
                         foreach (XmlNode nodeofLinegTCF in LigneTCFNode) //tìm được số khoảng cách có dây. = số cột - 1 
                         {
@@ -455,6 +484,23 @@ namespace test
                 MessageBox.Show("Cannot get cable attribute", "Error");
             }
         }
+
+        //private string getAnglePI(string nom)
+        //{
+        //    XmlNodeList listPorteesNode = pcm_doc.SelectNodes("//Portees");
+        //    foreach (XmlNode PorteesNode in listPorteesNode)
+        //    {
+        //        if (PorteesNode.ParentNode.Name != "Etude")
+        //            continue;
+        //        foreach (XmlNode PorteeNode in PorteesNode) //tìm được số khoảng cách có dây. = số cột - 1 
+        //        {
+        //            string suppG =  getValueinNodeChild(PorteeNode, "SuppG");
+        //            string angle =  getValueinNodeChild(PorteeNode, "Angle");
+        //            if(suppG == )
+        //        }
+        //    }
+        //            return "";
+        //}
 
         private string getValueinNodeChild(XmlNode node, string name)
         {
@@ -486,14 +532,62 @@ namespace test
 
         private string getTypefromConducteur(string conducteur)
         {
-            if (conducteur.Contains("D-"))
+            if (conducteur.Contains("A-N") || conducteur.Contains("A-Z") ||
+                conducteur.Contains("C-") || conducteur.Contains("D-") ||
+                conducteur.Contains("L1") || conducteur.Contains("LS") ||
+                conducteur.Contains("MFO") || conducteur.Contains("N-") ||
+                conducteur.Contains("P-") || conducteur.Contains("S8") ||
+                conducteur.Contains("MFO") || conducteur.Contains("N-") ||
+                conducteur.Contains("SACMY") || conducteur.Contains("SASZYPH") ||
+                conducteur.Contains("STER") || conducteur.Contains("TEL") ||
+                conducteur.Contains("TKF") || conducteur.Contains("Z-OFCM"))
                 return "FO";
-            else if (conducteur.Contains("BT"))
-                return "I";
-            else if (conducteur.Contains("/") || conducteur.Contains("-"))
-                return "TV";
             else
-                return "N";
+                return "TV";
+        }
+
+
+        private List<KeyValuePair<string, string>> getListAnglePIfromPortee()
+        {
+            List<KeyValuePair<string, string>> listSpBT = new List<KeyValuePair<string, string>>();
+            List<string> listAngle = new List<string>();
+            List<string> listSpG = new List<string>();
+            List<string> listSpD = new List<string>();
+            try
+            {
+                XmlNodeList listPorteesNode = pcm_doc.SelectNodes("//Portees");
+                foreach (XmlNode PorteesNode in listPorteesNode)
+                {
+                    if (PorteesNode.ParentNode.Name != "Etude")
+                        continue;
+                    foreach (XmlNode PorteeNode in PorteesNode) //tìm được số khoảng cách có dây. = số cột - 1 
+                    {
+                        string suppG = getValueinNodeChild(PorteeNode, "SuppG");
+                        string suppD = getValueinNodeChild(PorteeNode, "SuppD");
+                        string angle = getValueinNodeChild(PorteeNode, "Angle");
+                        if (suppG.Contains("BT") && suppD.Contains("BT") && !(listSpG.Contains(suppD) && listSpD.Contains(suppG)))
+                        {
+                            //listSpBT.Add(new KeyValuePair<string, string>(suppG, suppD));
+                            listSpG.Add(suppG);
+                            listSpD.Add(suppD);
+                            listAngle.Add(angle);
+                        }
+                    }
+                }
+                //find angle_pi
+                for (int i = 0; i < listSpG.Count; i++)
+                {
+                    string spG = listSpG[i];
+                    if(listSpG.IndexOf(spG,i+1) >= 0 || listSpD.Contains(spG))
+                        listSpBT.Add(new KeyValuePair<string, string>(spG, listAngle[i]));
+                }
+            }
+            catch
+            {
+                throw new Exception("Can not parse Angle_PI");
+            }
+
+            return listSpBT;
         }
 
     }

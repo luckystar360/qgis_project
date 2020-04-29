@@ -67,7 +67,35 @@ namespace test
             }
         }
 
+        //drag window
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case 0x84:
+                    System.Drawing.Point pos = new System.Drawing.Point(m.LParam.ToInt32());
+                    pos = this.PointToClient(pos);
+                    if (pos.Y < 30)
+                    {
+                        m.Result = (IntPtr)0x02;
+                        return;
+                    }
+                    break;
+            }
 
+            base.WndProc(ref m);
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int WS_MAXIMIZEBOX = 0x00010000;
+                var cp = base.CreateParams;
+                cp.Style &= ~WS_MAXIMIZEBOX;
+                return cp;
+            }
+        }
 
         /// <summary>
         /// import pcm file
@@ -111,11 +139,14 @@ namespace test
                         this.btnExport.Enabled = true;
 
                         //selectForm_Commited(null);
+                        cbbOperator.Enabled = true;
+                        cbbOperator.SelectedIndex = -1;
                     }
                     catch
                     {
 
                     }
+
                     return;
                 }
 
@@ -529,6 +560,11 @@ namespace test
         {
             try
             {
+                if (cbbOperator.Text == "")
+                {
+                    MessageBox.Show("Please select operateur", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 createSupportFile();
                 createCableFile();
                 createZoneFile();
@@ -543,6 +579,32 @@ namespace test
             {
                 MessageBox.Show(ex.ToString(), "Error");
             }
+        }
+
+        private void cbbOperator_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if((sender as ComboBox).Text != "")
+                pcm_reader.operator_pcm = (sender as ComboBox).Text;
+        }
+
+        private void btnExit_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.btnExit.BackColor = System.Drawing.Color.Red;
+        }
+
+        private void btnExit_MouseClick(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnExit_MouseLeave(object sender, EventArgs e)
+        {
+            this.btnExit.BackColor = System.Drawing.Color.Silver;
+        }
+
+        private void btnExit_MouseEnter(object sender, EventArgs e)
+        {
+            this.btnExit.BackColor = System.Drawing.Color.Gray;
         }
     }
 }

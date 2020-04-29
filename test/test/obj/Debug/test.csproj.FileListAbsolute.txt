@@ -110,3 +110,4 @@ E:\[01] Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\bin\Debug
 E:\[01] Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\obj\Debug\test.Form1.resources
 E:\[01] Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\obj\Debug\test.Properties.Resources.resources
 E:\[01] Data\[04] QGis\[01] Export QGIS project\qgis_project\test\test\obj\Debug\test.csproj.GenerateResource.Cache
+G:\ATungdlt\QGIS\qgis_project\test\test\obj\Debug\test.csprojAssemblyReference.cache

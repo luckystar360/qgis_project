@@ -28,9 +28,6 @@
     <layer-tree-layer name="ZONE" source="./Ressources/ZONE.shp" expanded="1" id="ZONE_5db79908_3ad5_4867_9f16_e35075e6eaa6" providerKey="ogr" checked="Qt::Checked">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer name="ZONE_DEC" source="./Ressources/ZONE_DEC.shp" expanded="1" id="ZONE_DEC_766a8b37_6f08_4d12_9279_d4a310b130b8" providerKey="ogr" checked="Qt::Checked">
-      <customproperties/>
-    </layer-tree-layer>
     <layer-tree-group name="CADASTRE" expanded="1" checked="Qt::Checked">
       <customproperties/>
       <layer-tree-layer name="cadastre-wms" source="contextualWMSLegend=0&amp;crs=EPSG:3857&amp;dpiMode=7&amp;featureCount=10&amp;format=image/png&amp;layers=CP.CadastralParcel&amp;layers=CLOTURE&amp;layers=HYDRO&amp;layers=DETAIL_TOPO&amp;layers=VOIE_COMMUNICATION&amp;layers=BU.Building&amp;layers=BORNE_REPERE&amp;maxHeight=800&amp;maxWidth=1200&amp;styles&amp;styles&amp;styles&amp;styles&amp;styles&amp;styles&amp;styles&amp;url=https://inspire.cadastre.gouv.fr/scpc/cadastre1.wms?" expanded="1" id="cadastre_wms_2e04d067_e9c4_4ddf_ab1f_c040fbf1552e" providerKey="wms" checked="Qt::Checked">
@@ -50,7 +47,6 @@
       <item>ZONE_5db79908_3ad5_4867_9f16_e35075e6eaa6</item>
       <item>CABLE_02f1b3b1_d664_46f4_a1f6_3dc9deb7bf6c</item>
       <item>SUPPORT_2a820bd0_f952_4ff3_9c32_dc92dcf873e4</item>
-      <item>ZONE_DEC_766a8b37_6f08_4d12_9279_d4a310b130b8</item>
     </custom-order>
   </layer-tree-group>
   <snapping-settings type="1" unit="2" intersection-snapping="0" mode="1" enabled="0" tolerance="0">
@@ -58,7 +54,6 @@
       <layer-setting type="1" units="1" id="SUPPORT_2a820bd0_f952_4ff3_9c32_dc92dcf873e4" enabled="0" tolerance="12"/>
       <layer-setting type="1" units="1" id="CABLE_02f1b3b1_d664_46f4_a1f6_3dc9deb7bf6c" enabled="0" tolerance="12"/>
       <layer-setting type="1" units="1" id="ZONE_5db79908_3ad5_4867_9f16_e35075e6eaa6" enabled="0" tolerance="12"/>
-      <layer-setting type="1" units="1" id="ZONE_DEC_766a8b37_6f08_4d12_9279_d4a310b130b8" enabled="0" tolerance="12"/>
     </individual-layer-settings>
   </snapping-settings>
   <relations/>
@@ -94,11 +89,6 @@
     <legendlayer name="ZONE" open="true" showFeatureCount="0" drawingOrder="-1" checked="Qt::Checked">
       <filegroup open="true" hidden="false">
         <legendlayerfile layerid="ZONE_5db79908_3ad5_4867_9f16_e35075e6eaa6" visible="1" isInOverview="0"/>
-      </filegroup>
-    </legendlayer>
-    <legendlayer name="ZONE_DEC" open="true" showFeatureCount="0" drawingOrder="-1" checked="Qt::Checked">
-      <filegroup open="true" hidden="false">
-        <legendlayerfile layerid="ZONE_DEC_766a8b37_6f08_4d12_9279_d4a310b130b8" visible="1" isInOverview="0"/>
       </filegroup>
     </legendlayer>
     <legendgroup name="CADASTRE" open="true" checked="Qt::Checked">
@@ -4492,233 +4482,7 @@ def my_form_open(dialog, layer, feature):
       <previewExpression>COALESCE( "OPERATEUR", '&lt;NULL>' )</previewExpression>
       <mapTip></mapTip>
     </maplayer>
-    <maplayer refreshOnNotifyMessage="" type="vector" simplifyDrawingTol="1" refreshOnNotifyEnabled="0" autoRefreshEnabled="0" hasScaleBasedVisibilityFlag="0" simplifyMaxScale="1" labelsEnabled="1" autoRefreshTime="0" simplifyAlgorithm="0" simplifyDrawingHints="1" minScale="10000" simplifyLocal="1" readOnly="0" maxScale="0" geometry="Polygon" styleCategories="AllStyleCategories">
-      <id>ZONE_DEC_766a8b37_6f08_4d12_9279_d4a310b130b8</id>
-      <datasource>./Ressources/ZONE_DEC.shp</datasource>
-      <keywordList>
-        <value></value>
-      </keywordList>
-      <layername>ZONE_DEC</layername>
-      <srs>
-        <spatialrefsys>
-          <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs</proj4>
-          <srsid>3857</srsid>
-          <srid>3857</srid>
-          <authid>EPSG:3857</authid>
-          <description>WGS 84 / Pseudo-Mercator</description>
-          <projectionacronym>merc</projectionacronym>
-          <ellipsoidacronym>WGS84</ellipsoidacronym>
-          <geographicflag>false</geographicflag>
-        </spatialrefsys>
-      </srs>
-      <resourceMetadata>
-        <identifier></identifier>
-        <parentidentifier></parentidentifier>
-        <language></language>
-        <type></type>
-        <title></title>
-        <abstract></abstract>
-        <contact>
-          <name></name>
-          <organization></organization>
-          <position></position>
-          <voice></voice>
-          <fax></fax>
-          <email></email>
-          <role></role>
-        </contact>
-        <links/>
-        <fees></fees>
-        <encoding></encoding>
-        <crs>
-          <spatialrefsys>
-            <proj4></proj4>
-            <srsid>0</srsid>
-            <srid>0</srid>
-            <authid></authid>
-            <description></description>
-            <projectionacronym></projectionacronym>
-            <ellipsoidacronym></ellipsoidacronym>
-            <geographicflag>false</geographicflag>
-          </spatialrefsys>
-        </crs>
-        <extent>
-          <spatial minz="0" maxz="0" miny="0" maxx="0" dimensions="2" maxy="0" minx="0" crs=""/>
-          <temporal>
-            <period>
-              <start></start>
-              <end></end>
-            </period>
-          </temporal>
-        </extent>
-      </resourceMetadata>
-      <provider encoding="System">ogr</provider>
-      <vectorjoins/>
-      <layerDependencies/>
-      <dataDependencies/>
-      <legend type="default-vector"/>
-      <expressionfields/>
-      <map-layer-style-manager current="défaut">
-        <map-layer-style name="défaut"/>
-      </map-layer-style-manager>
-      <auxiliaryLayer/>
-      <flags>
-        <Identifiable>1</Identifiable>
-        <Removable>1</Removable>
-        <Searchable>1</Searchable>
-      </flags>
-      <renderer-v2 type="singleSymbol" enableorderby="0" symbollevels="0" forceraster="0">
-        <symbols>
-          <symbol name="0" type="fill" force_rhr="0" alpha="1" clip_to_extent="1">
-            <layer locked="0" pass="0" enabled="1" class="SimpleLine">
-              <prop k="capstyle" v="square"/>
-              <prop k="customdash" v="5;2"/>
-              <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
-              <prop k="customdash_unit" v="MM"/>
-              <prop k="draw_inside_polygon" v="0"/>
-              <prop k="joinstyle" v="bevel"/>
-              <prop k="line_color" v="169,55,55,255"/>
-              <prop k="line_style" v="solid"/>
-              <prop k="line_width" v="1"/>
-              <prop k="line_width_unit" v="MapUnit"/>
-              <prop k="offset" v="0"/>
-              <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
-              <prop k="offset_unit" v="MapUnit"/>
-              <prop k="ring_filter" v="0"/>
-              <prop k="use_custom_dash" v="0"/>
-              <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
-              <data_defined_properties>
-                <Option type="Map">
-                  <Option name="name" type="QString" value=""/>
-                  <Option name="properties"/>
-                  <Option name="type" type="QString" value="collection"/>
-                </Option>
-              </data_defined_properties>
-            </layer>
-          </symbol>
-        </symbols>
-        <rotation/>
-        <sizescale/>
-      </renderer-v2>
-      <labeling type="simple">
-        <settings>
-          <text-style multilineHeight="1" fontWordSpacing="0" textColor="227,26,28,255" isExpression="0" fontWeight="50" fontSizeUnit="Point" fontSize="40" fontUnderline="0" fontStrikeout="0" namedStyle="Normal" fieldName="NUM_ZONE" fontItalic="0" textOpacity="0.4" fontLetterSpacing="0" fontSizeMapUnitScale="3x:0,0,0,0,0,0" previewBkgrdColor="#ffffff" fontFamily="MS Shell Dlg 2" blendMode="0" useSubstitutions="0" fontCapitals="0">
-            <text-buffer bufferSize="1" bufferSizeUnits="MM" bufferOpacity="1" bufferBlendMode="0" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferJoinStyle="128" bufferNoFill="1" bufferColor="255,255,255,255" bufferDraw="0"/>
-            <background shapeOffsetUnit="MM" shapeBlendMode="0" shapeRadiiX="0" shapeSizeY="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeJoinStyle="64" shapeSizeUnit="MM" shapeType="0" shapeRadiiUnit="MM" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeSVGFile="" shapeRotationType="0" shapeSizeX="0" shapeFillColor="255,255,255,255" shapeRotation="0" shapeBorderWidthUnit="MM" shapeRadiiY="0" shapeSizeType="0" shapeOffsetY="0" shapeOffsetX="0" shapeBorderWidth="0" shapeDraw="0" shapeOpacity="1" shapeBorderColor="128,128,128,255" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0"/>
-            <shadow shadowOffsetDist="1" shadowUnder="0" shadowRadiusUnit="MM" shadowDraw="0" shadowOffsetAngle="135" shadowOffsetGlobal="1" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowRadiusAlphaOnly="0" shadowColor="0,0,0,255" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowScale="100" shadowRadius="1.5" shadowOffsetUnit="MM" shadowBlendMode="6" shadowOpacity="0.7"/>
-            <substitutions/>
-          </text-style>
-          <text-format reverseDirectionSymbol="0" plussign="0" placeDirectionSymbol="0" wrapChar="" autoWrapLength="0" multilineAlign="4294967295" decimals="3" useMaxLineLengthForAutoWrap="1" addDirectionSymbol="0" rightDirectionSymbol=">" leftDirectionSymbol="&lt;" formatNumbers="0"/>
-          <placement dist="0" centroidInside="0" placement="0" distMapUnitScale="3x:0,0,0,0,0,0" placementFlags="10" repeatDistance="0" offsetType="0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" fitInPolygonOnly="0" quadOffset="4" yOffset="0" centroidWhole="0" rotationAngle="0" maxCurvedCharAngleIn="25" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" priority="5" maxCurvedCharAngleOut="-25" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" offsetUnits="MM" preserveRotation="1" xOffset="0" distUnits="MM" repeatDistanceUnits="MM"/>
-          <rendering labelPerPart="0" upsidedownLabels="0" obstacle="1" fontMaxPixelSize="10000" obstacleType="0" scaleMin="0" drawLabels="1" obstacleFactor="1" scaleVisibility="0" minFeatureSize="0" maxNumLabels="2000" fontLimitPixelSize="0" fontMinPixelSize="3" displayAll="0" limitNumLabels="0" zIndex="0" mergeLines="0" scaleMax="0"/>
-          <dd_properties>
-            <Option type="Map">
-              <Option name="name" type="QString" value=""/>
-              <Option name="properties"/>
-              <Option name="type" type="QString" value="collection"/>
-            </Option>
-          </dd_properties>
-        </settings>
-      </labeling>
-      <customproperties>
-        <property key="dualview/previewExpressions">
-          <value>COALESCE( "OPERATEUR", '&lt;NULL>' )</value>
-        </property>
-        <property value="0" key="embeddedWidgets/count"/>
-        <property key="variableNames"/>
-        <property key="variableValues"/>
-      </customproperties>
-      <blendMode>0</blendMode>
-      <featureBlendMode>0</featureBlendMode>
-      <layerOpacity>1</layerOpacity>
-      <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
-        <DiagramCategory maxScaleDenominator="1e+08" barWidth="5" rotationOffset="270" lineSizeScale="3x:0,0,0,0,0,0" minScaleDenominator="0" diagramOrientation="Up" height="15" sizeScale="3x:0,0,0,0,0,0" backgroundAlpha="255" scaleDependency="Area" minimumSize="0" enabled="0" labelPlacementMethod="XHeight" lineSizeType="MM" opacity="1" width="15" penWidth="0" penAlpha="255" penColor="#000000" scaleBasedVisibility="0" sizeType="MM" backgroundColor="#ffffff">
-          <fontProperties description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" style=""/>
-          <attribute color="#000000" label="" field=""/>
-        </DiagramCategory>
-      </SingleCategoryDiagramRenderer>
-      <DiagramLayerSettings obstacle="0" placement="0" priority="0" zIndex="0" linePlacementFlags="2" dist="0" showAll="1">
-        <properties>
-          <Option type="Map">
-            <Option name="name" type="QString" value=""/>
-            <Option name="properties"/>
-            <Option name="type" type="QString" value="collection"/>
-          </Option>
-        </properties>
-      </DiagramLayerSettings>
-      <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
-        <activeChecks/>
-        <checkConfiguration/>
-      </geometryOptions>
-      <fieldConfiguration>
-        <field name="NUM_ZONE">
-          <editWidget type="Range">
-            <config>
-              <Option/>
-            </config>
-          </editWidget>
-        </field>
-      </fieldConfiguration>
-      <aliases>
-        <alias name="" index="0" field="NUM_ZONE"/>
-      </aliases>
-      <excludeAttributesWMS/>
-      <excludeAttributesWFS/>
-      <defaults>
-        <default expression="" applyOnUpdate="0" field="NUM_ZONE"/>
-      </defaults>
-      <constraints>
-        <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="NUM_ZONE"/>
-      </constraints>
-      <constraintExpressions>
-        <constraint desc="" exp="" field="NUM_ZONE"/>
-      </constraintExpressions>
-      <expressionfields/>
-      <attributeactions>
-        <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
-      </attributeactions>
-      <attributetableconfig sortExpression="" actionWidgetStyle="dropDown" sortOrder="0">
-        <columns>
-          <column type="actions" width="-1" hidden="1"/>
-          <column name="NUM_ZONE" type="field" width="-1" hidden="0"/>
-        </columns>
-      </attributetableconfig>
-      <conditionalstyles>
-        <rowstyles/>
-        <fieldstyles/>
-      </conditionalstyles>
-      <editform tolerant="1">.</editform>
-      <editforminit/>
-      <editforminitcodesource>0</editforminitcodesource>
-      <editforminitfilepath>.</editforminitfilepath>
-      <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
-"""
-Les formulaires QGIS peuvent avoir une fonction Python qui sera appelée à l'ouverture du formulaire.
-
-Utilisez cette fonction pour ajouter plus de fonctionnalités à vos formulaires.
-
-Entrez le nom de la fonction dans le champ "Fonction d'initialisation Python".
-Voici un exemple à suivre:
-"""
-from qgis.PyQt.QtWidgets import QWidget
-
-def my_form_open(dialog, layer, feature):
-    geom = feature.geometry()
-    control = dialog.findChild(QWidget, "MyLineEdit")
-
-]]></editforminitcode>
-      <featformsuppress>0</featformsuppress>
-      <editorlayout>generatedlayout</editorlayout>
-      <editable>
-        <field name="NUM_ZONE" editable="1"/>
-      </editable>
-      <labelOnTop>
-        <field name="NUM_ZONE" labelOnTop="0"/>
-      </labelOnTop>
-      <widgets/>
-      <previewExpression>COALESCE( "OPERATEUR", '&lt;NULL>' )</previewExpression>
-      <mapTip></mapTip>
-    </maplayer>
+    
     <maplayer refreshOnNotifyMessage="" type="raster" refreshOnNotifyEnabled="0" autoRefreshEnabled="0" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" minScale="1e+08" maxScale="0" styleCategories="AllStyleCategories">
       <id>cadastre_wms2_4e0aa889_620f_4746_aee6_e96b45d530bb</id>
       <datasource>contextualWMSLegend=0&amp;crs=EPSG:3857&amp;dpiMode=7&amp;featureCount=10&amp;format=image/png&amp;layers=CP.CadastralParcel&amp;layers=CLOTURE&amp;layers=DETAIL_TOPO&amp;layers=HYDRO&amp;layers=BU.Building&amp;layers=VOIE_COMMUNICATION&amp;layers=BORNE_REPERE&amp;maxHeight=800&amp;maxWidth=1200&amp;styles&amp;styles&amp;styles&amp;styles&amp;styles&amp;styles&amp;styles&amp;url=https://inspire.cadastre.gouv.fr/scpc/cadastre2.wms?</datasource>
@@ -4919,7 +4683,6 @@ def my_form_open(dialog, layer, feature):
     <layer id="ZONE_5db79908_3ad5_4867_9f16_e35075e6eaa6"/>
     <layer id="CABLE_02f1b3b1_d664_46f4_a1f6_3dc9deb7bf6c"/>
     <layer id="SUPPORT_2a820bd0_f952_4ff3_9c32_dc92dcf873e4"/>
-    <layer id="ZONE_DEC_766a8b37_6f08_4d12_9279_d4a310b130b8"/>
   </layerorder>
   <properties>
     <WMSAddWktGeometry type="bool">false</WMSAddWktGeometry>
@@ -7037,7 +6800,7 @@ def closeProject():&#xd;
               <Option name="properties" type="Map">
                 <Option name="dataDefinedMapLayers" type="Map">
                   <Option name="active" type="bool" value="true"/>
-                  <Option name="expression" type="QString" value="concat (&#xd;&#xa;'SUPPORT', '|', &#xd;&#xa;'CABLE', '|', &#xd;&#xa;'ZONE_DEC', '|', &#xd;&#xa;'cadastre-batiments.json', '|', &#xd;&#xa;'cadastre-parcelles.json', '|', &#xd;&#xa;'cadastre-wms', '|',&#xd;&#xa;'cadastre-wms2'&#xd;&#xa;)"/>
+                  <Option name="expression" type="QString" value="concat (&#xd;&#xa;'SUPPORT', '|', &#xd;&#xa;'CABLE', '|', &#xd;&#xa;'cadastre-batiments.json', '|', &#xd;&#xa;'cadastre-parcelles.json', '|', &#xd;&#xa;'cadastre-wms', '|',&#xd;&#xa;'cadastre-wms2'&#xd;&#xa;)"/>
                   <Option name="type" type="int" value="3"/>
                 </Option>
               </Option>
@@ -10843,7 +10606,7 @@ def closeProject():&#xd;
               <Option name="properties" type="Map">
                 <Option name="dataDefinedMapLayers" type="Map">
                   <Option name="active" type="bool" value="true"/>
-                  <Option name="expression" type="QString" value="concat (&#xd;&#xa;'SUPPORT', '|', &#xd;&#xa;'CABLE', '|', &#xd;&#xa;'ZONE_DEC', '|', &#xd;&#xa;'cadastre-batiments.json', '|', &#xd;&#xa;'cadastre-parcelles.json', '|', &#xd;&#xa;'cadastre-wms', '|',&#xd;&#xa;'cadastre-wms2'&#xd;&#xa;)"/>
+                  <Option name="expression" type="QString" value="concat (&#xd;&#xa;'SUPPORT', '|', &#xd;&#xa;'CABLE', '|', &#xd;&#xa;'cadastre-batiments.json', '|', &#xd;&#xa;'cadastre-parcelles.json', '|', &#xd;&#xa;'cadastre-wms', '|',&#xd;&#xa;'cadastre-wms2'&#xd;&#xa;)"/>
                   <Option name="type" type="int" value="3"/>
                 </Option>
               </Option>
@@ -10986,7 +10749,6 @@ def closeProject():&#xd;
           <value>/Ressources/Support/FLECHE_NORD.svg</value>
         </property>
       </customproperties>
-      <Atlas filenamePattern=" concat(attribute( get_feature_by_id( 'ZONE','0'),'REF_ETUDE'),'_Livrable')" pageNameExpression="&quot;NUM_ZONE&quot;" coverageLayer="ZONE_DEC_766a8b37_6f08_4d12_9279_d4a310b130b8" coverageLayerName="ZONE_DEC" hideCoverage="0" filterFeatures="0" enabled="1" sortFeatures="0" coverageLayerProvider="ogr" coverageLayerSource="C:/Users/vpantel/Downloads/Test SEPALE/PB REUNION/Livrable/Ressources/ZONE_DEC.shp"/>
-    </Layout>
+      </Layout>
   </Layouts>
 </qgis>

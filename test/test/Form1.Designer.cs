@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnOpenFile = new System.Windows.Forms.Button();
-            this.txtDirSource = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dtExport = new System.Windows.Forms.DateTimePicker();
@@ -59,34 +59,32 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnExport = new System.Windows.Forms.Button();
+            this.txtDirSource = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOpenFile
             // 
+            this.btnOpenFile.BackColor = System.Drawing.Color.White;
+            this.btnOpenFile.FlatAppearance.BorderSize = 0;
+            this.btnOpenFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenFile.Location = new System.Drawing.Point(895, 43);
+            this.btnOpenFile.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenFile.Image")));
+            this.btnOpenFile.Location = new System.Drawing.Point(875, 48);
             this.btnOpenFile.Name = "btnOpenFile";
-            this.btnOpenFile.Size = new System.Drawing.Size(33, 23);
+            this.btnOpenFile.Size = new System.Drawing.Size(38, 38);
             this.btnOpenFile.TabIndex = 0;
-            this.btnOpenFile.Text = "...";
             this.btnOpenFile.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnOpenFile.UseVisualStyleBackColor = true;
+            this.btnOpenFile.UseVisualStyleBackColor = false;
             this.btnOpenFile.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // txtDirSource
-            // 
-            this.txtDirSource.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDirSource.Enabled = false;
-            this.txtDirSource.Location = new System.Drawing.Point(125, 45);
-            this.txtDirSource.Name = "txtDirSource";
-            this.txtDirSource.Size = new System.Drawing.Size(750, 20);
-            this.txtDirSource.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 50);
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(23, 64);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 13);
             this.label1.TabIndex = 2;
@@ -95,7 +93,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 85);
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(23, 99);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 2;
@@ -103,13 +102,14 @@
             // 
             // dtExport
             // 
-            this.dtExport.Location = new System.Drawing.Point(125, 79);
+            this.dtExport.Location = new System.Drawing.Point(125, 93);
             this.dtExport.Name = "dtExport";
             this.dtExport.Size = new System.Drawing.Size(200, 20);
             this.dtExport.TabIndex = 3;
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.txtInsee_casd2);
             this.groupBox1.Controls.Add(this.txtInsee_casd1);
             this.groupBox1.Controls.Add(this.txtNumberEplans);
@@ -134,105 +134,112 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(26, 126);
+            this.groupBox1.Location = new System.Drawing.Point(26, 140);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(916, 243);
+            this.groupBox1.Size = new System.Drawing.Size(890, 243);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "PCM data";
             // 
             // txtInsee_casd2
             // 
-            this.txtInsee_casd2.Location = new System.Drawing.Point(614, 192);
+            this.txtInsee_casd2.Location = new System.Drawing.Point(589, 192);
             this.txtInsee_casd2.Name = "txtInsee_casd2";
             this.txtInsee_casd2.Size = new System.Drawing.Size(271, 20);
             this.txtInsee_casd2.TabIndex = 2;
             // 
             // txtInsee_casd1
             // 
-            this.txtInsee_casd1.Location = new System.Drawing.Point(163, 193);
+            this.txtInsee_casd1.Location = new System.Drawing.Point(156, 193);
             this.txtInsee_casd1.Name = "txtInsee_casd1";
             this.txtInsee_casd1.Size = new System.Drawing.Size(271, 20);
             this.txtInsee_casd1.TabIndex = 2;
             // 
             // txtNumberEplans
             // 
-            this.txtNumberEplans.Location = new System.Drawing.Point(614, 158);
+            this.txtNumberEplans.Location = new System.Drawing.Point(589, 158);
             this.txtNumberEplans.Name = "txtNumberEplans";
             this.txtNumberEplans.Size = new System.Drawing.Size(271, 20);
             this.txtNumberEplans.TabIndex = 2;
             // 
             // txtReference
             // 
-            this.txtReference.Location = new System.Drawing.Point(163, 159);
+            this.txtReference.Location = new System.Drawing.Point(156, 159);
             this.txtReference.Name = "txtReference";
             this.txtReference.Size = new System.Drawing.Size(271, 20);
             this.txtReference.TabIndex = 2;
             // 
             // txtComment
             // 
-            this.txtComment.Location = new System.Drawing.Point(614, 124);
+            this.txtComment.Location = new System.Drawing.Point(589, 124);
             this.txtComment.Name = "txtComment";
             this.txtComment.Size = new System.Drawing.Size(271, 20);
             this.txtComment.TabIndex = 2;
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(163, 125);
+            this.txtDescription.Location = new System.Drawing.Point(156, 125);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(271, 20);
             this.txtDescription.TabIndex = 2;
             // 
             // txtCommon
             // 
-            this.txtCommon.Location = new System.Drawing.Point(614, 90);
+            this.txtCommon.Location = new System.Drawing.Point(589, 90);
             this.txtCommon.Name = "txtCommon";
             this.txtCommon.Size = new System.Drawing.Size(271, 20);
             this.txtCommon.TabIndex = 2;
             // 
             // txtStreet
             // 
-            this.txtStreet.Location = new System.Drawing.Point(163, 91);
+            this.txtStreet.Location = new System.Drawing.Point(156, 91);
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(271, 20);
             this.txtStreet.TabIndex = 2;
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(614, 55);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(589, 55);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(271, 20);
             this.txtPhoneNumber.TabIndex = 2;
             // 
             // txtOperatingCorrespondent
             // 
-            this.txtOperatingCorrespondent.Location = new System.Drawing.Point(163, 56);
+            this.txtOperatingCorrespondent.Location = new System.Drawing.Point(156, 56);
             this.txtOperatingCorrespondent.Name = "txtOperatingCorrespondent";
             this.txtOperatingCorrespondent.Size = new System.Drawing.Size(271, 20);
             this.txtOperatingCorrespondent.TabIndex = 2;
             // 
             // cbbEnergyDistribute
             // 
+            this.cbbEnergyDistribute.BackColor = System.Drawing.Color.White;
             this.cbbEnergyDistribute.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbEnergyDistribute.FormattingEnabled = true;
-            this.cbbEnergyDistribute.Location = new System.Drawing.Point(614, 19);
+            this.cbbEnergyDistribute.Location = new System.Drawing.Point(589, 19);
             this.cbbEnergyDistribute.Name = "cbbEnergyDistribute";
             this.cbbEnergyDistribute.Size = new System.Drawing.Size(271, 21);
             this.cbbEnergyDistribute.TabIndex = 1;
             // 
             // cbbOperator
             // 
+            this.cbbOperator.BackColor = System.Drawing.Color.White;
             this.cbbOperator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbOperator.Enabled = false;
             this.cbbOperator.FormattingEnabled = true;
-            this.cbbOperator.Location = new System.Drawing.Point(163, 20);
+            this.cbbOperator.Items.AddRange(new object[] {
+            "ORANGE",
+            "FIBRE 31"});
+            this.cbbOperator.Location = new System.Drawing.Point(156, 20);
             this.cbbOperator.Name = "cbbOperator";
             this.cbbOperator.Size = new System.Drawing.Size(271, 21);
             this.cbbOperator.TabIndex = 1;
+            this.cbbOperator.SelectedValueChanged += new System.EventHandler(this.cbbOperator_SelectedValueChanged);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(484, 27);
+            this.label14.Location = new System.Drawing.Point(472, 27);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(91, 13);
             this.label14.TabIndex = 0;
@@ -241,7 +248,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(484, 59);
+            this.label13.Location = new System.Drawing.Point(472, 59);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(79, 13);
             this.label13.TabIndex = 0;
@@ -250,7 +257,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(484, 94);
+            this.label12.Location = new System.Drawing.Point(472, 94);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(51, 13);
             this.label12.TabIndex = 0;
@@ -259,7 +266,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(484, 128);
+            this.label11.Location = new System.Drawing.Point(472, 128);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(54, 13);
             this.label11.TabIndex = 0;
@@ -268,7 +275,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(484, 162);
+            this.label10.Location = new System.Drawing.Point(472, 162);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(113, 13);
             this.label10.TabIndex = 0;
@@ -277,7 +284,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(484, 196);
+            this.label9.Location = new System.Drawing.Point(472, 196);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(92, 13);
             this.label9.TabIndex = 0;
@@ -339,28 +346,74 @@
             // 
             // btnExport
             // 
+            this.btnExport.BackColor = System.Drawing.Color.White;
             this.btnExport.Enabled = false;
-            this.btnExport.Location = new System.Drawing.Point(836, 524);
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.Location = new System.Drawing.Point(832, 411);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(75, 23);
             this.btnExport.TabIndex = 5;
             this.btnExport.Text = "Export";
-            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.UseVisualStyleBackColor = false;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // txtDirSource
+            // 
+            this.txtDirSource.BackColor = System.Drawing.Color.White;
+            this.txtDirSource.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtDirSource.Location = new System.Drawing.Point(125, 64);
+            this.txtDirSource.Name = "txtDirSource";
+            this.txtDirSource.Size = new System.Drawing.Size(745, 15);
+            this.txtDirSource.TabIndex = 6;
+            this.txtDirSource.Text = "...";
+            this.txtDirSource.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.txtDirSource.UseCompatibleTextRendering = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 30);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(941, 430);
+            this.panel1.TabIndex = 7;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(906, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(35, 30);
+            this.btnExit.TabIndex = 0;
+            this.btnExit.Text = "X";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_MouseClick);
+            this.btnExit.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnExit_MouseDown);
+            this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
+            this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 571);
+            this.BackColor = System.Drawing.Color.Silver;
+            this.ClientSize = new System.Drawing.Size(941, 460);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.txtDirSource);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dtExport);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtDirSource);
             this.Controls.Add(this.btnOpenFile);
+            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -371,7 +424,6 @@
 
         #endregion
         private System.Windows.Forms.Button btnOpenFile;
-        private System.Windows.Forms.TextBox txtDirSource;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtExport;
@@ -401,6 +453,9 @@
         private System.Windows.Forms.ComboBox cbbEnergyDistribute;
         private System.Windows.Forms.ComboBox cbbOperator;
         private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Label txtDirSource;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label btnExit;
     }
 }
 
