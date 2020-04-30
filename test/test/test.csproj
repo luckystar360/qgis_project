@@ -88,6 +88,12 @@
     <Compile Include="PCMReader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TitleTransparent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TitleTransparent.Designer.cs">
+      <DependentUpon>TitleTransparent.cs</DependentUpon>
+    </Compile>
     <Compile Include="WebGenerator.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -102,6 +108,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TitleTransparent.resx">
+      <DependentUpon>TitleTransparent.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

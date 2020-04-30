@@ -97,6 +97,9 @@ namespace test
             }
         }
 
+
+        //
+
         /// <summary>
         /// import pcm file
         /// </summary>
@@ -207,7 +210,7 @@ namespace test
                         AttributeShapefile.updateAttributetoSupportLayer(ref shapefile, support_attribute);
                     }
 
-                   
+
 
                     if (output_folder != null)
                         shapefile.SaveAs(output_folder + "\\Ressources\\SUPPORT.shp", true);
@@ -219,7 +222,7 @@ namespace test
                     MessageBox.Show("Import pcm file, please!", "Error");
                 }
             }
-            catch 
+            catch
             {
                 throw new Exception("Can not create support shp");
             }
@@ -445,7 +448,7 @@ namespace test
 
                 qgsFile.Save(output_folder + "\\Livrable.qgs");
             }
-            catch 
+            catch
             {
                 throw new Exception("Can not create qgs file");
             }
@@ -492,7 +495,7 @@ namespace test
                     newPath.CopyTo(temppath, true);
                 }
             }
-            catch 
+            catch
             {
                 throw new Exception("Can not create logo folder");
             }
@@ -513,9 +516,9 @@ namespace test
 
                 foreach (FileInfo newPath in srcFolder.GetFiles())
                 {
-                    foreach(var attribute in pcm_reader.list_support_attribute)
+                    foreach (var attribute in pcm_reader.list_support_attribute)
                     {
-                        if(newPath.Name.Contains(attribute.nom) && attribute.gene_etiq == "T")
+                        if (newPath.Name.Contains(attribute.nom) && attribute.gene_etiq == "T")
                         {
                             string temppath = Path.Combine(destFolder, newPath.Name);
                             newPath.CopyTo(temppath, true);
@@ -583,7 +586,7 @@ namespace test
 
         private void cbbOperator_SelectedValueChanged(object sender, EventArgs e)
         {
-            if((sender as ComboBox).Text != "")
+            if ((sender as ComboBox).Text != "")
                 pcm_reader.operator_pcm = (sender as ComboBox).Text;
         }
 
@@ -605,6 +608,58 @@ namespace test
         private void btnExit_MouseEnter(object sender, EventArgs e)
         {
             this.btnExit.BackColor = System.Drawing.Color.Gray;
+        }
+
+        //text change
+
+        private void txtOperatingCorrespondent_TextChanged(object sender, EventArgs e)
+        {
+            pcm_reader.operating_corespondent = txtOperatingCorrespondent.Text;
+        }
+
+        private void txtStreet_TextChanged(object sender, EventArgs e)
+        {
+            pcm_reader.street = txtStreet.Text;
+        }
+
+        private void txtDescription_TextChanged(object sender, EventArgs e)
+        {
+            pcm_reader.description = txtDescription.Text;
+        }
+
+        private void txtReference_TextChanged(object sender, EventArgs e)
+        {
+            pcm_reader.reference = txtReference.Text;
+        }
+
+        private void txtInsee_casd1_TextChanged(object sender, EventArgs e)
+        {
+            pcm_reader.insee_cadastre_1 = txtInsee_casd1.Text;
+        }
+
+        private void txtPhoneNumber_TextChanged(object sender, EventArgs e)
+        {
+            pcm_reader.phone_number = txtPhoneNumber.Text;
+        }
+
+        private void txtCommon_TextChanged(object sender, EventArgs e)
+        {
+            pcm_reader.common = txtCommon.Text;
+        }
+
+        private void txtComment_TextChanged(object sender, EventArgs e)
+        {
+            pcm_reader.comment = txtComment.Text;
+        }
+
+        private void txtNumberEplans_TextChanged(object sender, EventArgs e)
+        {
+            pcm_reader.number_eplans = txtNumberEplans.Text;
+        }
+
+        private void txtInsee_casd2_TextChanged(object sender, EventArgs e)
+        {
+            pcm_reader.insee_cadastre_2 = txtInsee_casd2.Text;
         }
     }
 }

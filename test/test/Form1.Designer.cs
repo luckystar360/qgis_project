@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.btnOpenFile = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dtExport = new System.Windows.Forms.DateTimePicker();
@@ -62,29 +61,16 @@
             this.txtDirSource = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Label();
+            this.titleTransparent1 = new test.TitleTransparent();
+            this.btnOpenFile = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnOpenFile
-            // 
-            this.btnOpenFile.BackColor = System.Drawing.Color.White;
-            this.btnOpenFile.FlatAppearance.BorderSize = 0;
-            this.btnOpenFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpenFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenFile.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenFile.Image")));
-            this.btnOpenFile.Location = new System.Drawing.Point(875, 48);
-            this.btnOpenFile.Name = "btnOpenFile";
-            this.btnOpenFile.Size = new System.Drawing.Size(38, 38);
-            this.btnOpenFile.TabIndex = 0;
-            this.btnOpenFile.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnOpenFile.UseVisualStyleBackColor = false;
-            this.btnOpenFile.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(23, 64);
+            this.label1.Location = new System.Drawing.Point(24, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 13);
             this.label1.TabIndex = 2;
@@ -94,7 +80,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(23, 99);
+            this.label2.Location = new System.Drawing.Point(24, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 2;
@@ -147,6 +133,7 @@
             this.txtInsee_casd2.Name = "txtInsee_casd2";
             this.txtInsee_casd2.Size = new System.Drawing.Size(271, 20);
             this.txtInsee_casd2.TabIndex = 2;
+            this.txtInsee_casd2.TextChanged += new System.EventHandler(this.txtInsee_casd2_TextChanged);
             // 
             // txtInsee_casd1
             // 
@@ -154,6 +141,7 @@
             this.txtInsee_casd1.Name = "txtInsee_casd1";
             this.txtInsee_casd1.Size = new System.Drawing.Size(271, 20);
             this.txtInsee_casd1.TabIndex = 2;
+            this.txtInsee_casd1.TextChanged += new System.EventHandler(this.txtInsee_casd1_TextChanged);
             // 
             // txtNumberEplans
             // 
@@ -161,6 +149,7 @@
             this.txtNumberEplans.Name = "txtNumberEplans";
             this.txtNumberEplans.Size = new System.Drawing.Size(271, 20);
             this.txtNumberEplans.TabIndex = 2;
+            this.txtNumberEplans.TextChanged += new System.EventHandler(this.txtNumberEplans_TextChanged);
             // 
             // txtReference
             // 
@@ -168,6 +157,7 @@
             this.txtReference.Name = "txtReference";
             this.txtReference.Size = new System.Drawing.Size(271, 20);
             this.txtReference.TabIndex = 2;
+            this.txtReference.TextChanged += new System.EventHandler(this.txtReference_TextChanged);
             // 
             // txtComment
             // 
@@ -175,6 +165,7 @@
             this.txtComment.Name = "txtComment";
             this.txtComment.Size = new System.Drawing.Size(271, 20);
             this.txtComment.TabIndex = 2;
+            this.txtComment.TextChanged += new System.EventHandler(this.txtComment_TextChanged);
             // 
             // txtDescription
             // 
@@ -182,6 +173,7 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(271, 20);
             this.txtDescription.TabIndex = 2;
+            this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
             // 
             // txtCommon
             // 
@@ -189,6 +181,7 @@
             this.txtCommon.Name = "txtCommon";
             this.txtCommon.Size = new System.Drawing.Size(271, 20);
             this.txtCommon.TabIndex = 2;
+            this.txtCommon.TextChanged += new System.EventHandler(this.txtCommon_TextChanged);
             // 
             // txtStreet
             // 
@@ -196,6 +189,7 @@
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(271, 20);
             this.txtStreet.TabIndex = 2;
+            this.txtStreet.TextChanged += new System.EventHandler(this.txtStreet_TextChanged);
             // 
             // txtPhoneNumber
             // 
@@ -203,6 +197,7 @@
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(271, 20);
             this.txtPhoneNumber.TabIndex = 2;
+            this.txtPhoneNumber.TextChanged += new System.EventHandler(this.txtPhoneNumber_TextChanged);
             // 
             // txtOperatingCorrespondent
             // 
@@ -210,6 +205,7 @@
             this.txtOperatingCorrespondent.Name = "txtOperatingCorrespondent";
             this.txtOperatingCorrespondent.Size = new System.Drawing.Size(271, 20);
             this.txtOperatingCorrespondent.TabIndex = 2;
+            this.txtOperatingCorrespondent.TextChanged += new System.EventHandler(this.txtOperatingCorrespondent_TextChanged);
             // 
             // cbbEnergyDistribute
             // 
@@ -373,18 +369,19 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 30);
+            this.panel1.Location = new System.Drawing.Point(1, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(941, 430);
+            this.panel1.Size = new System.Drawing.Size(939, 430);
             this.panel1.TabIndex = 7;
             // 
             // btnExit
             // 
             this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(906, 0);
+            this.btnExit.Location = new System.Drawing.Point(905, 1);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 1, 3, 0);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(35, 30);
+            this.btnExit.Size = new System.Drawing.Size(35, 28);
             this.btnExit.TabIndex = 0;
             this.btnExit.Text = "X";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -393,6 +390,33 @@
             this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
             this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
+            // titleTransparent1
+            // 
+            this.titleTransparent1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.titleTransparent1.AutoSize = true;
+            this.titleTransparent1.Font = new System.Drawing.Font("Palatino Linotype", 12.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleTransparent1.Location = new System.Drawing.Point(393, 3);
+            this.titleTransparent1.Name = "titleTransparent1";
+            this.titleTransparent1.Size = new System.Drawing.Size(170, 23);
+            this.titleTransparent1.TabIndex = 9;
+            this.titleTransparent1.Text = "COMAC Report Tool";
+            this.titleTransparent1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnOpenFile
+            // 
+            this.btnOpenFile.BackColor = System.Drawing.Color.White;
+            this.btnOpenFile.FlatAppearance.BorderSize = 0;
+            this.btnOpenFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpenFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenFile.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenFile.Image")));
+            this.btnOpenFile.Location = new System.Drawing.Point(875, 48);
+            this.btnOpenFile.Name = "btnOpenFile";
+            this.btnOpenFile.Size = new System.Drawing.Size(38, 38);
+            this.btnOpenFile.TabIndex = 0;
+            this.btnOpenFile.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnOpenFile.UseVisualStyleBackColor = false;
+            this.btnOpenFile.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,6 +424,7 @@
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(941, 460);
             this.ControlBox = false;
+            this.Controls.Add(this.titleTransparent1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtDirSource);
             this.Controls.Add(this.btnExport);
@@ -413,6 +438,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
+            this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
@@ -456,6 +482,7 @@
         private System.Windows.Forms.Label txtDirSource;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label btnExit;
+        private TitleTransparent titleTransparent1;
     }
 }
 
