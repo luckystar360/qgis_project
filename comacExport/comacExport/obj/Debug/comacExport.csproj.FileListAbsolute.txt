@@ -62,4 +62,3 @@ G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\bin\Debug\Spire.Common.xml
 G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\bin\Debug\Spire.License.xml
 G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\bin\Debug\Spire.Pdf.xml
 G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\bin\Debug\Spire.XLS.xml
-G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\obj\Debug\comacExport.csprojAssemblyReference.cache

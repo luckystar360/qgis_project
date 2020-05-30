@@ -793,8 +793,8 @@ namespace comacExport
             }
             using (SaveFileDialog excelSaveFileDialog = new SaveFileDialog())
             {
-                excelSaveFileDialog.Filter = "Excel Template|*.XLSX";
-                excelSaveFileDialog.Title = "Import Excel Template File";
+                excelSaveFileDialog.Filter = "Excel Report|*.XLSX";
+                excelSaveFileDialog.Title = "Export Excel Report File";
 
                 if (excelSaveFileDialog.ShowDialog() == DialogResult.OK)
                 {
