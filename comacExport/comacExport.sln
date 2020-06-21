@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "comacExport", "comacExport\
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{91ABEB83-B617-4E20-8B95-7D199E7262A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LicenseActive", "LicenseActive\LicenseActive.csproj", "{B1094D4E-6E56-4EB2-B67C-378B48EA2A07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{78D6EE00-5DCC-4914-B955-C80476C5AA0C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{91ABEB83-B617-4E20-8B95-7D199E7262A9}.Debug|Any CPU.ActiveCfg = Debug
 		{91ABEB83-B617-4E20-8B95-7D199E7262A9}.Release|Any CPU.ActiveCfg = Release
+		{B1094D4E-6E56-4EB2-B67C-378B48EA2A07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1094D4E-6E56-4EB2-B67C-378B48EA2A07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1094D4E-6E56-4EB2-B67C-378B48EA2A07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1094D4E-6E56-4EB2-B67C-378B48EA2A07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

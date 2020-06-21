@@ -55,6 +55,9 @@
     <Reference Include="DotSpatial.Topology, Version=1.9.0.0, Culture=neutral, PublicKeyToken=a66b5e9434ca3671, processorArchitecture=MSIL">
       <HintPath>..\packages\DotSpatial.Topology.1.9\lib\net40-Client\DotSpatial.Topology.dll</HintPath>
     </Reference>
+    <Reference Include="LicenseActive">
+      <HintPath>..\packages\LicenseActive\LicenseActive.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
@@ -85,6 +88,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Active License.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Active License.Designer.cs">
+      <DependentUpon>Active License.cs</DependentUpon>
+    </Compile>
     <Compile Include="AttributeShapefile.cs" />
     <Compile Include="AttributeLayer.cs" />
     <Compile Include="CustomPosition.cs" />
@@ -94,6 +103,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseInforForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicenseInforForm.Designer.cs">
+      <DependentUpon>LicenseInforForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PCMReader.cs" />
     <Compile Include="Program.cs" />
@@ -105,8 +120,14 @@
       <DependentUpon>TitleTransparent.cs</DependentUpon>
     </Compile>
     <Compile Include="WebGenerator.cs" />
+    <EmbeddedResource Include="Active License.resx">
+      <DependentUpon>Active License.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenseInforForm.resx">
+      <DependentUpon>LicenseInforForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

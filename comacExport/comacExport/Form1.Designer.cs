@@ -60,6 +60,7 @@
             this.btnExport = new System.Windows.Forms.Button();
             this.txtDirSource = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbProcess = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lbPdf = new System.Windows.Forms.Label();
             this.lbExcelTemplate = new System.Windows.Forms.Label();
@@ -68,23 +69,34 @@
             this.btnImportPdf = new System.Windows.Forms.Button();
             this.btnImportExcelTemplate = new System.Windows.Forms.Button();
             this.btnExportExcel = new System.Windows.Forms.Button();
-            this.btnImportLogo = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnImportLogo = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activeLiceseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importLogoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportQGisProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnExit = new System.Windows.Forms.Label();
             this.btnOpenFile = new System.Windows.Forms.Button();
-            this.lbProcess = new System.Windows.Forms.Label();
+            this.lbLicense = new System.Windows.Forms.Label();
             this.titleTransparent1 = new comacExport.TitleTransparent();
+            this.licenseInfotoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(24, 77);
+            this.label1.Location = new System.Drawing.Point(24, 100);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 13);
             this.label1.TabIndex = 2;
@@ -94,7 +106,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(24, 112);
+            this.label2.Location = new System.Drawing.Point(24, 135);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 2;
@@ -102,7 +114,7 @@
             // 
             // dtExport
             // 
-            this.dtExport.Location = new System.Drawing.Point(125, 105);
+            this.dtExport.Location = new System.Drawing.Point(125, 131);
             this.dtExport.Name = "dtExport";
             this.dtExport.Size = new System.Drawing.Size(200, 20);
             this.dtExport.TabIndex = 3;
@@ -134,7 +146,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(26, 152);
+            this.groupBox1.Location = new System.Drawing.Point(26, 175);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(890, 243);
             this.groupBox1.TabIndex = 4;
@@ -143,7 +155,7 @@
             // 
             // txtInsee_casd2
             // 
-            this.txtInsee_casd2.Location = new System.Drawing.Point(589, 192);
+            this.txtInsee_casd2.Location = new System.Drawing.Point(589, 215);
             this.txtInsee_casd2.Name = "txtInsee_casd2";
             this.txtInsee_casd2.Size = new System.Drawing.Size(271, 20);
             this.txtInsee_casd2.TabIndex = 2;
@@ -151,7 +163,7 @@
             // 
             // txtInsee_casd1
             // 
-            this.txtInsee_casd1.Location = new System.Drawing.Point(156, 193);
+            this.txtInsee_casd1.Location = new System.Drawing.Point(156, 216);
             this.txtInsee_casd1.Name = "txtInsee_casd1";
             this.txtInsee_casd1.Size = new System.Drawing.Size(271, 20);
             this.txtInsee_casd1.TabIndex = 2;
@@ -159,7 +171,7 @@
             // 
             // txtNumberEplans
             // 
-            this.txtNumberEplans.Location = new System.Drawing.Point(589, 158);
+            this.txtNumberEplans.Location = new System.Drawing.Point(589, 181);
             this.txtNumberEplans.Name = "txtNumberEplans";
             this.txtNumberEplans.Size = new System.Drawing.Size(271, 20);
             this.txtNumberEplans.TabIndex = 2;
@@ -167,7 +179,7 @@
             // 
             // txtReference
             // 
-            this.txtReference.Location = new System.Drawing.Point(156, 159);
+            this.txtReference.Location = new System.Drawing.Point(156, 182);
             this.txtReference.Name = "txtReference";
             this.txtReference.Size = new System.Drawing.Size(271, 20);
             this.txtReference.TabIndex = 2;
@@ -175,7 +187,7 @@
             // 
             // txtComment
             // 
-            this.txtComment.Location = new System.Drawing.Point(589, 124);
+            this.txtComment.Location = new System.Drawing.Point(589, 147);
             this.txtComment.Name = "txtComment";
             this.txtComment.Size = new System.Drawing.Size(271, 20);
             this.txtComment.TabIndex = 2;
@@ -183,7 +195,7 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(156, 125);
+            this.txtDescription.Location = new System.Drawing.Point(156, 148);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(271, 20);
             this.txtDescription.TabIndex = 2;
@@ -191,7 +203,7 @@
             // 
             // txtCommon
             // 
-            this.txtCommon.Location = new System.Drawing.Point(589, 90);
+            this.txtCommon.Location = new System.Drawing.Point(589, 113);
             this.txtCommon.Name = "txtCommon";
             this.txtCommon.Size = new System.Drawing.Size(271, 20);
             this.txtCommon.TabIndex = 2;
@@ -199,7 +211,7 @@
             // 
             // txtStreet
             // 
-            this.txtStreet.Location = new System.Drawing.Point(156, 91);
+            this.txtStreet.Location = new System.Drawing.Point(156, 114);
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(271, 20);
             this.txtStreet.TabIndex = 2;
@@ -207,7 +219,7 @@
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(589, 55);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(589, 78);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(271, 20);
             this.txtPhoneNumber.TabIndex = 2;
@@ -215,7 +227,7 @@
             // 
             // txtOperatingCorrespondent
             // 
-            this.txtOperatingCorrespondent.Location = new System.Drawing.Point(156, 56);
+            this.txtOperatingCorrespondent.Location = new System.Drawing.Point(156, 79);
             this.txtOperatingCorrespondent.Name = "txtOperatingCorrespondent";
             this.txtOperatingCorrespondent.Size = new System.Drawing.Size(271, 20);
             this.txtOperatingCorrespondent.TabIndex = 2;
@@ -226,7 +238,7 @@
             this.cbbEnergyDistribute.BackColor = System.Drawing.Color.White;
             this.cbbEnergyDistribute.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbEnergyDistribute.FormattingEnabled = true;
-            this.cbbEnergyDistribute.Location = new System.Drawing.Point(589, 19);
+            this.cbbEnergyDistribute.Location = new System.Drawing.Point(589, 42);
             this.cbbEnergyDistribute.Name = "cbbEnergyDistribute";
             this.cbbEnergyDistribute.Size = new System.Drawing.Size(271, 21);
             this.cbbEnergyDistribute.TabIndex = 1;
@@ -237,7 +249,7 @@
             this.cbbOperator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbOperator.Enabled = false;
             this.cbbOperator.FormattingEnabled = true;
-            this.cbbOperator.Location = new System.Drawing.Point(156, 20);
+            this.cbbOperator.Location = new System.Drawing.Point(156, 43);
             this.cbbOperator.Name = "cbbOperator";
             this.cbbOperator.Size = new System.Drawing.Size(271, 21);
             this.cbbOperator.TabIndex = 1;
@@ -246,7 +258,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(472, 27);
+            this.label14.Location = new System.Drawing.Point(472, 50);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(91, 13);
             this.label14.TabIndex = 0;
@@ -255,7 +267,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(472, 59);
+            this.label13.Location = new System.Drawing.Point(472, 82);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(79, 13);
             this.label13.TabIndex = 0;
@@ -264,7 +276,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(472, 94);
+            this.label12.Location = new System.Drawing.Point(472, 117);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(51, 13);
             this.label12.TabIndex = 0;
@@ -273,7 +285,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(472, 128);
+            this.label11.Location = new System.Drawing.Point(472, 151);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(54, 13);
             this.label11.TabIndex = 0;
@@ -282,7 +294,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(472, 162);
+            this.label10.Location = new System.Drawing.Point(472, 185);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(113, 13);
             this.label10.TabIndex = 0;
@@ -291,7 +303,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(472, 196);
+            this.label9.Location = new System.Drawing.Point(472, 219);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(92, 13);
             this.label9.TabIndex = 0;
@@ -300,7 +312,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(22, 196);
+            this.label8.Location = new System.Drawing.Point(22, 219);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(92, 13);
             this.label8.TabIndex = 0;
@@ -309,7 +321,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(22, 162);
+            this.label7.Location = new System.Drawing.Point(22, 185);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 13);
             this.label7.TabIndex = 0;
@@ -318,7 +330,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 128);
+            this.label6.Location = new System.Drawing.Point(22, 151);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 0;
@@ -327,7 +339,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 94);
+            this.label5.Location = new System.Drawing.Point(22, 117);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 13);
             this.label5.TabIndex = 0;
@@ -336,7 +348,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 59);
+            this.label4.Location = new System.Drawing.Point(22, 82);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(128, 13);
             this.label4.TabIndex = 0;
@@ -345,7 +357,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 27);
+            this.label3.Location = new System.Drawing.Point(22, 50);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 0;
@@ -355,7 +367,7 @@
             // 
             this.btnExport.BackColor = System.Drawing.Color.White;
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExport.Location = new System.Drawing.Point(818, 361);
+            this.btnExport.Location = new System.Drawing.Point(818, 365);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(80, 23);
             this.btnExport.TabIndex = 5;
@@ -367,7 +379,7 @@
             // 
             this.txtDirSource.BackColor = System.Drawing.Color.White;
             this.txtDirSource.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtDirSource.Location = new System.Drawing.Point(125, 76);
+            this.txtDirSource.Location = new System.Drawing.Point(125, 99);
             this.txtDirSource.Name = "txtDirSource";
             this.txtDirSource.Size = new System.Drawing.Size(745, 15);
             this.txtDirSource.TabIndex = 6;
@@ -381,11 +393,24 @@
             this.panel1.Controls.Add(this.lbProcess);
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Controls.Add(this.menuStrip1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(1, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(939, 580);
+            this.panel1.Size = new System.Drawing.Size(939, 590);
             this.panel1.TabIndex = 7;
+            // 
+            // lbProcess
+            // 
+            this.lbProcess.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lbProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbProcess.ForeColor = System.Drawing.Color.OliveDrab;
+            this.lbProcess.Location = new System.Drawing.Point(0, 560);
+            this.lbProcess.Name = "lbProcess";
+            this.lbProcess.Size = new System.Drawing.Size(939, 30);
+            this.lbProcess.TabIndex = 8;
+            this.lbProcess.Text = "Ready!";
+            this.lbProcess.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox3
             // 
@@ -396,9 +421,9 @@
             this.groupBox3.Controls.Add(this.btnImportPdf);
             this.groupBox3.Controls.Add(this.btnImportExcelTemplate);
             this.groupBox3.Controls.Add(this.btnExportExcel);
-            this.groupBox3.Location = new System.Drawing.Point(14, 435);
+            this.groupBox3.Location = new System.Drawing.Point(14, 458);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(912, 109);
+            this.groupBox3.Size = new System.Drawing.Size(912, 99);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Convert Pdf to Excel";
@@ -407,7 +432,7 @@
             // 
             this.lbPdf.BackColor = System.Drawing.Color.White;
             this.lbPdf.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbPdf.Location = new System.Drawing.Point(89, 70);
+            this.lbPdf.Location = new System.Drawing.Point(89, 65);
             this.lbPdf.Name = "lbPdf";
             this.lbPdf.Size = new System.Drawing.Size(590, 15);
             this.lbPdf.TabIndex = 8;
@@ -419,7 +444,7 @@
             // 
             this.lbExcelTemplate.BackColor = System.Drawing.Color.White;
             this.lbExcelTemplate.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbExcelTemplate.Location = new System.Drawing.Point(89, 36);
+            this.lbExcelTemplate.Location = new System.Drawing.Point(89, 31);
             this.lbExcelTemplate.Name = "lbExcelTemplate";
             this.lbExcelTemplate.Size = new System.Drawing.Size(590, 15);
             this.lbExcelTemplate.TabIndex = 7;
@@ -430,7 +455,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(8, 72);
+            this.label16.Location = new System.Drawing.Point(8, 67);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(66, 13);
             this.label16.TabIndex = 6;
@@ -439,7 +464,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(9, 36);
+            this.label15.Location = new System.Drawing.Point(9, 31);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(83, 13);
             this.label15.TabIndex = 6;
@@ -449,7 +474,7 @@
             // 
             this.btnImportPdf.BackColor = System.Drawing.Color.White;
             this.btnImportPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImportPdf.Location = new System.Drawing.Point(699, 66);
+            this.btnImportPdf.Location = new System.Drawing.Point(699, 61);
             this.btnImportPdf.Name = "btnImportPdf";
             this.btnImportPdf.Size = new System.Drawing.Size(32, 23);
             this.btnImportPdf.TabIndex = 5;
@@ -461,7 +486,7 @@
             // 
             this.btnImportExcelTemplate.BackColor = System.Drawing.Color.White;
             this.btnImportExcelTemplate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImportExcelTemplate.Location = new System.Drawing.Point(699, 31);
+            this.btnImportExcelTemplate.Location = new System.Drawing.Point(699, 26);
             this.btnImportExcelTemplate.Name = "btnImportExcelTemplate";
             this.btnImportExcelTemplate.Size = new System.Drawing.Size(32, 23);
             this.btnImportExcelTemplate.TabIndex = 5;
@@ -473,7 +498,7 @@
             // 
             this.btnExportExcel.BackColor = System.Drawing.Color.White;
             this.btnExportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExportExcel.Location = new System.Drawing.Point(818, 48);
+            this.btnExportExcel.Location = new System.Drawing.Point(818, 43);
             this.btnExportExcel.Name = "btnExportExcel";
             this.btnExportExcel.Size = new System.Drawing.Size(80, 23);
             this.btnExportExcel.TabIndex = 5;
@@ -481,11 +506,22 @@
             this.btnExportExcel.UseVisualStyleBackColor = false;
             this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnExport);
+            this.groupBox2.Controls.Add(this.btnImportLogo);
+            this.groupBox2.Location = new System.Drawing.Point(14, 43);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(912, 400);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "COMAC to QGIS";
+            // 
             // btnImportLogo
             // 
             this.btnImportLogo.BackColor = System.Drawing.Color.White;
             this.btnImportLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImportLogo.Location = new System.Drawing.Point(818, 74);
+            this.btnImportLogo.Location = new System.Drawing.Point(818, 75);
             this.btnImportLogo.Name = "btnImportLogo";
             this.btnImportLogo.Size = new System.Drawing.Size(75, 23);
             this.btnImportLogo.TabIndex = 5;
@@ -493,16 +529,79 @@
             this.btnImportLogo.UseVisualStyleBackColor = false;
             this.btnImportLogo.Click += new System.EventHandler(this.btnImportLogo_Click);
             // 
-            // groupBox2
+            // menuStrip1
             // 
-            this.groupBox2.Controls.Add(this.btnExport);
-            this.groupBox2.Controls.Add(this.btnImportLogo);
-            this.groupBox2.Location = new System.Drawing.Point(14, 19);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(912, 400);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "COMAC to QGIS";
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem,
+            this.helpToolStripMenuItem1});
+            this.menuStrip1.Location = new System.Drawing.Point(-6, 1);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(251, 24);
+            this.menuStrip1.TabIndex = 9;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.activeLiceseToolStripMenuItem,
+            this.licenseInfotoolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // activeLiceseToolStripMenuItem
+            // 
+            this.activeLiceseToolStripMenuItem.Name = "activeLiceseToolStripMenuItem";
+            this.activeLiceseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.activeLiceseToolStripMenuItem.Text = "Active Licese";
+            this.activeLiceseToolStripMenuItem.Click += new System.EventHandler(this.activeLiceseToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importLogoToolStripMenuItem1,
+            this.exportQGisProjectToolStripMenuItem,
+            this.exportExcelToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
+            this.helpToolStripMenuItem.Text = "Tool";
+            // 
+            // importLogoToolStripMenuItem1
+            // 
+            this.importLogoToolStripMenuItem1.Name = "importLogoToolStripMenuItem1";
+            this.importLogoToolStripMenuItem1.Size = new System.Drawing.Size(175, 22);
+            this.importLogoToolStripMenuItem1.Text = "Import Logo";
+            this.importLogoToolStripMenuItem1.Click += new System.EventHandler(this.importLogoToolStripMenuItem_Click);
+            // 
+            // exportQGisProjectToolStripMenuItem
+            // 
+            this.exportQGisProjectToolStripMenuItem.Name = "exportQGisProjectToolStripMenuItem";
+            this.exportQGisProjectToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.exportQGisProjectToolStripMenuItem.Text = "Export QGis Project";
+            this.exportQGisProjectToolStripMenuItem.Click += new System.EventHandler(this.exportQGisProjectToolStripMenuItem_Click);
+            // 
+            // exportExcelToolStripMenuItem
+            // 
+            this.exportExcelToolStripMenuItem.Name = "exportExcelToolStripMenuItem";
+            this.exportExcelToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.exportExcelToolStripMenuItem.Text = "Export Excel";
+            this.exportExcelToolStripMenuItem.Click += new System.EventHandler(this.exportExcelToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem1
+            // 
+            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem1.Text = "Help";
             // 
             // btnExit
             // 
@@ -527,7 +626,7 @@
             this.btnOpenFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenFile.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenFile.Image")));
-            this.btnOpenFile.Location = new System.Drawing.Point(875, 60);
+            this.btnOpenFile.Location = new System.Drawing.Point(875, 84);
             this.btnOpenFile.Name = "btnOpenFile";
             this.btnOpenFile.Size = new System.Drawing.Size(38, 38);
             this.btnOpenFile.TabIndex = 0;
@@ -535,17 +634,18 @@
             this.btnOpenFile.UseVisualStyleBackColor = false;
             this.btnOpenFile.Click += new System.EventHandler(this.button2_Click);
             // 
-            // lbProcess
+            // lbLicense
             // 
-            this.lbProcess.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lbProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbProcess.ForeColor = System.Drawing.Color.OliveDrab;
-            this.lbProcess.Location = new System.Drawing.Point(0, 550);
-            this.lbProcess.Name = "lbProcess";
-            this.lbProcess.Size = new System.Drawing.Size(939, 30);
-            this.lbProcess.TabIndex = 8;
-            this.lbProcess.Text = "Ready!";
-            this.lbProcess.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbLicense.BackColor = System.Drawing.Color.Red;
+            this.lbLicense.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLicense.ForeColor = System.Drawing.Color.White;
+            this.lbLicense.Location = new System.Drawing.Point(1, 1);
+            this.lbLicense.Name = "lbLicense";
+            this.lbLicense.Size = new System.Drawing.Size(126, 28);
+            this.lbLicense.TabIndex = 9;
+            this.lbLicense.Text = "INVALID License";
+            this.lbLicense.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // titleTransparent1
             // 
@@ -559,13 +659,21 @@
             this.titleTransparent1.Text = "COMAC Report Tool";
             this.titleTransparent1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // licenseInfotoolStripMenuItem
+            // 
+            this.licenseInfotoolStripMenuItem.Name = "licenseInfotoolStripMenuItem";
+            this.licenseInfotoolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.licenseInfotoolStripMenuItem.Text = "License Information";
+            this.licenseInfotoolStripMenuItem.Click += new System.EventHandler(this.licenseInfoToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(941, 610);
+            this.ClientSize = new System.Drawing.Size(941, 620);
             this.ControlBox = false;
+            this.Controls.Add(this.lbLicense);
             this.Controls.Add(this.titleTransparent1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtDirSource);
@@ -577,6 +685,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
@@ -586,9 +695,12 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -640,6 +752,17 @@
         private System.Windows.Forms.Button btnImportPdf;
         private System.Windows.Forms.Button btnImportExcelTemplate;
         private System.Windows.Forms.Label lbProcess;
+        private System.Windows.Forms.Label lbLicense;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem activeLiceseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importLogoToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem exportQGisProjectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportExcelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem licenseInfotoolStripMenuItem;
     }
 }
 

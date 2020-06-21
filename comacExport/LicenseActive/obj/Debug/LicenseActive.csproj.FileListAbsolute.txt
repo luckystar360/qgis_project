@@ -1,0 +1,10 @@
+G:\ATungdlt\QGIS\qgis_project\comacExport\LicenseActive\bin\Debug\LicenseActive.dll
+G:\ATungdlt\QGIS\qgis_project\comacExport\LicenseActive\bin\Debug\LicenseActive.pdb
+G:\ATungdlt\QGIS\qgis_project\comacExport\LicenseActive\obj\Debug\LicenseActive.csproj.CoreCompileInputs.cache
+G:\ATungdlt\QGIS\qgis_project\comacExport\LicenseActive\obj\Debug\LicenseActive.dll
+G:\ATungdlt\QGIS\qgis_project\comacExport\LicenseActive\obj\Debug\LicenseActive.pdb
+G:\ATungdlt\QGIS\qgis_project\comacExport\LicenseActive\obj\Debug\LicenseActive.Properties.Resources.resources
+G:\ATungdlt\QGIS\qgis_project\comacExport\LicenseActive\obj\Debug\LicenseActive.csproj.GenerateResource.cache
+G:\ATungdlt\QGIS\qgis_project\comacExport\packages\LicenseActive\LicenseActive.dll
+G:\ATungdlt\QGIS\qgis_project\comacExport\packages\LicenseActive\LicenseActive.pdb
+G:\ATungdlt\QGIS\qgis_project\comacExport\LicenseActive\obj\Debug\LicenseActive.csprojAssemblyReference.cache

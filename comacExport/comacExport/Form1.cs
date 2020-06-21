@@ -14,7 +14,7 @@ using System.Collections;
 using DotSpatial.Topology;
 using System.Globalization;
 using System.IO;
-
+using LicenseActive;
 
 namespace comacExport
 {
@@ -33,6 +33,9 @@ namespace comacExport
         private string operator_logo_folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\COMAC Report Tool\Logo\operator";
         private string distributor_logo_folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\COMAC Report Tool\Logo\distributor";
 
+        private string appName = "trading_fx_standard";
+        private string license_folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\COMAC Report Tool\License";
+
         private string output_folder;
         private string input_folder;
         private string photos_folder_input;
@@ -50,22 +53,23 @@ namespace comacExport
         Shapefile shapefile;
         PCMReader pcm_reader;
 
+        //license information
+        Active_License activeForm;
+        DateTime expireTime = DateTime.MinValue;
+        private bool activeLicense = false;
+
 
 
         public Form1()
         {
             InitializeComponent();
+            //check license
+            checkLicenseStartupApp(license_folder + "/license.lic");
 
             pcm_reader = new PCMReader();
 
             info_input = ProjectionInfo.Open(default_prj_in);
             info_output = ProjectionInfo.Open(default_prj_out);
-
-            //if (!mapping_attribute.readFileExcel(mapping_file))
-            //{
-            //    //mapping_data = mapping_attribute.mapping_data;
-            //    Application.Exit();
-            //}
 
             loadListLogo();
         }
@@ -646,7 +650,7 @@ namespace comacExport
                 catch (Exception ex)
                 {
                     enableControl(true);
-                    this.updateStatus("Export qgis project fail!",false);
+                    this.updateStatus("Export qgis project fail!", false);
                     MessageBox.Show(ex.ToString(), "Error");
                 }
             });
@@ -670,7 +674,7 @@ namespace comacExport
                 catch
                 {
                     enableControl(true);
-                    this.updateStatus("Export Excel Report fail!",false);
+                    this.updateStatus("Export Excel Report fail!", false);
                     MessageBox.Show("Can not export Excel Report", "Error");
                 }
             });
@@ -681,6 +685,12 @@ namespace comacExport
         #region button click
         private void btnImportLogo_Click(object sender, EventArgs e)
         {
+            if (!activeLicense)
+            {
+                Application.Exit();
+                return;
+            }
+
             using (OpenFileDialog logoFileDialog = new OpenFileDialog())
             {
                 logoFileDialog.Filter = "JPGLogo|*.jpg";
@@ -717,11 +727,11 @@ namespace comacExport
         /// <param name="e"></param>
         private void btnExport_Click(object sender, EventArgs e)
         {
-            //check time license
-            DateTime expireDate = new DateTime(2020, 5, 18);//18/05/2020\
-            if (DateTime.Now > expireDate)
+            if (!activeLicense)
+            {
                 Application.Exit();
-            //end check
+                return;
+            }
 
             if (cbbOperator.Text == "")
             {
@@ -786,6 +796,12 @@ namespace comacExport
 
         private void btnExportExcel_Click(object sender, EventArgs e)
         {
+            if (!activeLicense)
+            {
+                Application.Exit();
+                return;
+            }
+
             if (pdf_input_path == null || excel_input_path == null)
             {
                 MessageBox.Show("Please import pdf and excel template", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -903,7 +919,7 @@ namespace comacExport
                 lock (new object())
                 {
                     this.lbProcess.Text = stt;
-                    if(success == true)
+                    if (success == true)
                         this.lbProcess.ForeColor = System.Drawing.Color.OliveDrab;
                     else
                         this.lbProcess.ForeColor = System.Drawing.Color.Red;
@@ -911,11 +927,11 @@ namespace comacExport
             }));
         }
 
-        public void enableControl(bool enb= true)
+        public void enableControl(bool enb = true)
         {
             BeginInvoke(new Action(() =>
             {
-                lock(new object())
+                lock (new object())
                 {
                     this.txtOperatingCorrespondent.Enabled = enb;
                     this.txtStreet.Enabled = enb;
@@ -940,11 +956,108 @@ namespace comacExport
 
                     this.btnOpenFile.Enabled = enb;
                     this.cbbOperator.Enabled = enb;
-                    
+
                 }
             }));
-            
+
         }
+
+        #region License
+        ///
+        //Tool Strip click event
+        ///
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void activeLiceseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            activeForm = new Active_License(appName);
+            activeForm.LicenseState += ActiveForm_LicenseState;
+            activeForm.ShowDialog();
+        }
+
+        private void licenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ActiveLicense.licenseInfor != null )
+            {
+                LicenseInforForm.showForm(activeLicense, ActiveLicense.licenseInfor.UID, ActiveLicense.licenseInfor.ExpireDateTime);
+            }    
+        }
+
+        private void ActiveForm_LicenseState(bool stt)
+        {
+            try
+            {
+                activeLicense = stt;
+                expireTime = ActiveLicense.licenseInfor.ExpireDateTime;
+
+                //copy license to appData
+                if (activeForm == null || activeForm.pathLicense == null)
+                    return;
+
+                if (File.Exists(activeForm.pathLicense) && stt == true)
+                {
+                    FileInfo licensFile = new FileInfo(activeForm.pathLicense);
+                    string temppath = Path.Combine(license_folder,"license.lic");
+                    licensFile.CopyTo(temppath, true);
+                    this.updateLicenseStatus(activeLicense, expireTime);
+                    MessageBox.Show("You have an active license","", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                    MessageBox.Show("You do not have an active license", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch(Exception ex) {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
+        }
+
+        private void updateLicenseStatus(bool active, DateTime expireTime)
+        {
+            this.activeLicense =  active ? (expireTime > DateTime.Now ? true : false) : false;
+
+            this.lbLicense.BackColor = this.activeLicense ? System.Drawing.Color.Green : System.Drawing.Color.Red;
+            this.lbLicense.Text = active ? (expireTime > DateTime.Now ? "Valid License" : "Expire License") : "Invalid License";
+        }
+        
+        private void checkLicenseStartupApp(string pathLicense)
+        {
+            if (File.Exists(pathLicense))
+            {
+                string textLicense = File.ReadAllText(pathLicense);
+                bool validLicense = ActiveLicense.ValidateLicense(textLicense, appName);
+
+                activeLicense = validLicense;
+                expireTime = ActiveLicense.licenseInfor.ExpireDateTime;
+                this.updateLicenseStatus(activeLicense, expireTime);
+            }
+            else
+            {
+                activeLicense = false;
+                expireTime = ActiveLicense.licenseInfor.ExpireDateTime;
+                this.updateLicenseStatus(activeLicense, expireTime);
+            }    
+        }
+
+        #endregion
+
+        private void importLogoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.btnImportLogo_Click(sender, e);
+        }
+
+        private void exportQGisProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.btnExport_Click(sender, e);
+        }
+
+        private void exportExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.btnExportExcel_Click(sender, e);
+        }
+
+
     }
 }
 
