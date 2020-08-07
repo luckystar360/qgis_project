@@ -5,3 +5,4 @@ G:\ATungdlt\QGIS\qgis_project\comacExport\LicenseActive\obj\Release\LicenseActiv
 G:\ATungdlt\QGIS\qgis_project\comacExport\LicenseActive\obj\Release\LicenseActive.pdb
 G:\ATungdlt\QGIS\qgis_project\comacExport\LicenseActive\obj\Release\LicenseActive.Properties.Resources.resources
 G:\ATungdlt\QGIS\qgis_project\comacExport\LicenseActive\obj\Release\LicenseActive.csproj.GenerateResource.cache
+G:\ATungdlt\QGIS\qgis_project\comacExport\LicenseActive\obj\Release\LicenseActive.csprojAssemblyReference.cache

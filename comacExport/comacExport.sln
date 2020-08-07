@@ -9,6 +9,10 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LicenseActive", "LicenseActive\LicenseActive.csproj", "{B1094D4E-6E56-4EB2-B67C-378B48EA2A07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyGenerator", "KeyGenerator\KeyGenerator.csproj", "{5EA0CA30-B5BE-40EE-9855-5D704CE95F99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserControls", "UserControls\UserControls.csproj", "{405BC3AB-236D-4FE9-B43D-24F5E499230A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,14 @@ Global
 		{B1094D4E-6E56-4EB2-B67C-378B48EA2A07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1094D4E-6E56-4EB2-B67C-378B48EA2A07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1094D4E-6E56-4EB2-B67C-378B48EA2A07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EA0CA30-B5BE-40EE-9855-5D704CE95F99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EA0CA30-B5BE-40EE-9855-5D704CE95F99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EA0CA30-B5BE-40EE-9855-5D704CE95F99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EA0CA30-B5BE-40EE-9855-5D704CE95F99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{405BC3AB-236D-4FE9-B43D-24F5E499230A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{405BC3AB-236D-4FE9-B43D-24F5E499230A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{405BC3AB-236D-4FE9-B43D-24F5E499230A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{405BC3AB-236D-4FE9-B43D-24F5E499230A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -35,7 +35,7 @@ namespace comacExport
                 if (!shapefile.Attributes.Table.Columns.Contains(columName))
                 {
                     DataColumn newCol = new DataColumn(columName, typeof(string));
-                    newCol.MaxLength = 50;
+                    //newCol.MaxLength = 200;
                     shapefile.Attributes.Table.Columns.Add(newCol);
                 }
                 newRow[columName] = nodeValue;
@@ -66,7 +66,7 @@ namespace comacExport
                 if (!shapefile.Attributes.Table.Columns.Contains(columName))
                 {
                     DataColumn newCol = new DataColumn(columName, typeof(string));
-                    newCol.MaxLength = 50;
+                   // newCol.MaxLength = 50;
                     shapefile.Attributes.Table.Columns.Add(newCol);
                 }
                 newRow[columName] = nodeValue;
@@ -95,7 +95,7 @@ namespace comacExport
                 if (!shapefile.Attributes.Table.Columns.Contains(columName))
                 {
                     DataColumn newCol = new DataColumn(columName, typeof(string));
-                    newCol.MaxLength = 50;
+                    //newCol.MaxLength = 50;
                     shapefile.Attributes.Table.Columns.Add(newCol);
                 }
                 newRow[columName] = nodeValue;

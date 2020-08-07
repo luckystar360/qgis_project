@@ -36,4 +36,8 @@ G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\bin\Release\LicenseActive.
 G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\bin\Release\LicenseActive.pdb
 G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\obj\Release\comacExport.Active_License.resources
 G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\obj\Release\comacExport.LicenseInforForm.resources
-G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\obj\Release\comacExport.csprojAssemblyReference.cache
+G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\bin\Release\KeyGenerator.dll
+G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\bin\Release\UserControls.dll
+G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\bin\Release\KeyGenerator.pdb
+G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\bin\Release\KeyGenerator.dll.config
+G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\bin\Release\UserControls.pdb

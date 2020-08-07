@@ -55,6 +55,9 @@
     <Reference Include="DotSpatial.Topology, Version=1.9.0.0, Culture=neutral, PublicKeyToken=a66b5e9434ca3671, processorArchitecture=MSIL">
       <HintPath>..\packages\DotSpatial.Topology.1.9\lib\net40-Client\DotSpatial.Topology.dll</HintPath>
     </Reference>
+    <Reference Include="KeyGenerator">
+      <HintPath>..\packages\KeyGenerator\KeyGenerator.dll</HintPath>
+    </Reference>
     <Reference Include="LicenseActive">
       <HintPath>..\packages\LicenseActive\LicenseActive.dll</HintPath>
     </Reference>

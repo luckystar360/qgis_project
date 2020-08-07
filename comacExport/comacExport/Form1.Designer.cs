@@ -74,6 +74,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activeLiceseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.licenseInfotoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importLogoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,7 +85,7 @@
             this.btnOpenFile = new System.Windows.Forms.Button();
             this.lbLicense = new System.Windows.Forms.Label();
             this.titleTransparent1 = new comacExport.TitleTransparent();
-            this.licenseInfotoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generateKeyStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -545,6 +546,7 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generateKeyStripMenuItem,
             this.activeLiceseToolStripMenuItem,
             this.licenseInfotoolStripMenuItem,
             this.exitToolStripMenuItem});
@@ -558,6 +560,13 @@
             this.activeLiceseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.activeLiceseToolStripMenuItem.Text = "Active Licese";
             this.activeLiceseToolStripMenuItem.Click += new System.EventHandler(this.activeLiceseToolStripMenuItem_Click);
+            // 
+            // licenseInfotoolStripMenuItem
+            // 
+            this.licenseInfotoolStripMenuItem.Name = "licenseInfotoolStripMenuItem";
+            this.licenseInfotoolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.licenseInfotoolStripMenuItem.Text = "License Information";
+            this.licenseInfotoolStripMenuItem.Click += new System.EventHandler(this.licenseInfoToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -659,12 +668,12 @@
             this.titleTransparent1.Text = "COMAC Report Tool";
             this.titleTransparent1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // licenseInfotoolStripMenuItem
+            // generateKeyStripMenuItem
             // 
-            this.licenseInfotoolStripMenuItem.Name = "licenseInfotoolStripMenuItem";
-            this.licenseInfotoolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.licenseInfotoolStripMenuItem.Text = "License Information";
-            this.licenseInfotoolStripMenuItem.Click += new System.EventHandler(this.licenseInfoToolStripMenuItem_Click);
+            this.generateKeyStripMenuItem.Name = "generateKeyStripMenuItem";
+            this.generateKeyStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.generateKeyStripMenuItem.Text = "Generate Key";
+            this.generateKeyStripMenuItem.Click += new System.EventHandler(this.generateKeyStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -763,6 +772,7 @@
         private System.Windows.Forms.ToolStripMenuItem exportExcelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem licenseInfotoolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generateKeyStripMenuItem;
     }
 }
 

@@ -33,8 +33,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lbLicensePath = new System.Windows.Forms.Label();
             this.btnImportLicense = new System.Windows.Forms.Label();
-            this.titleTransparent1 = new comacExport.TitleTransparent();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.titleTransparent1 = new comacExport.TitleTransparent();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -74,9 +75,9 @@
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(13, 53);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 13);
+            this.label3.Size = new System.Drawing.Size(98, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Import Liscen File:";
+            this.label3.Text = "Import License File:";
             // 
             // lbLicensePath
             // 
@@ -102,6 +103,17 @@
             this.btnImportLicense.MouseEnter += new System.EventHandler(this.MouseEnterEvent);
             this.btnImportLicense.MouseLeave += new System.EventHandler(this.MouseLeaveEvent);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Location = new System.Drawing.Point(1, 29);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(461, 165);
+            this.panel1.TabIndex = 5;
+            // 
             // titleTransparent1
             // 
             this.titleTransparent1.BackColor = System.Drawing.Color.Silver;
@@ -114,17 +126,6 @@
             this.titleTransparent1.TabIndex = 4;
             this.titleTransparent1.Text = "Active License";
             this.titleTransparent1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(1, 29);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(461, 165);
-            this.panel1.TabIndex = 5;
             // 
             // Active_License
             // 
@@ -158,5 +159,6 @@
         private System.Windows.Forms.Label btnImportLicense;
         private TitleTransparent titleTransparent1;
         private System.Windows.Forms.Panel panel1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

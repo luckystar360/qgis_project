@@ -26,21 +26,25 @@ namespace comacExport
 
         public static void showForm(bool active, String UID, DateTime expireTime)
         {
-            if (Instance != null && !Instance.IsDisposed) { }
-            else
-                Instance = new LicenseInforForm();
-
-            Instance.lbStateLicense.Text = active ? (expireTime > DateTime.Now ? "VALID LICENSE" : "EXPIRE LICENSE") : "INVALID LICENSE";
-
-            Instance.lbStateLicense.ForeColor = active ? Color.Green : Color.Red;
-
-            if (active)
+            try
             {
-                Instance.lbUID.Text = UID;
-                Instance.lbExpireTime.Text = expireTime.ToString();
-            }    
+                if (Instance != null && !Instance.IsDisposed) { }
+                else
+                    Instance = new LicenseInforForm();
 
-            Instance.ShowDialog();
+                Instance.lbStateLicense.Text = active ? "VALID LICENSE" : (expireTime > DateTime.Now ? "INVALID LICENSE" : "EXPIRE LICENSE");
+
+                Instance.lbStateLicense.ForeColor = active ? Color.Green : Color.Red;
+
+                if (expireTime != DateTime.MinValue)
+                {
+                    Instance.lbUID.Text = UID;
+                    Instance.lbExpireTime.Text = expireTime.ToString();
+                }
+
+                Instance.ShowDialog();
+            }
+            catch { }
         }
 
         private void btnCancel_MouseEnter(object sender, EventArgs e)

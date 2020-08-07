@@ -1,20 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DotSpatial.Projections;
 using DotSpatial.Data;
-using NUnit.Framework;
 using System.Xml;
-using System.Collections;
 using DotSpatial.Topology;
 using System.Globalization;
 using System.IO;
 using LicenseActive;
+using KeyGen;
 
 namespace comacExport
 {
@@ -259,7 +255,7 @@ namespace comacExport
                     MessageBox.Show("Import pcm file, please!", "Error");
                 }
             }
-            catch
+            catch(Exception ex)
             {
                 throw new Exception("Can not create support shp");
             }
@@ -969,6 +965,11 @@ namespace comacExport
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void generateKeyStripMenuItem_Click(object sender, EventArgs e)
+        {
+           KeyGenerator.showForm();
         }
 
         private void activeLiceseToolStripMenuItem_Click(object sender, EventArgs e)

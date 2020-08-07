@@ -65,3 +65,9 @@ G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\bin\Debug\Spire.XLS.xml
 G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\obj\Debug\comacExport.Active_License.resources
 G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\bin\Debug\LicenseActive.dll
 G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\bin\Debug\LicenseActive.pdb
+G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\bin\Debug\KeyGenerator.dll
+G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\bin\Debug\UserControls.dll
+G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\bin\Debug\KeyGenerator.pdb
+G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\bin\Debug\KeyGenerator.dll.config
+G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\bin\Debug\UserControls.pdb
+G:\ATungdlt\QGIS\qgis_project\comacExport\comacExport\obj\Debug\comacExport.LicenseInforForm.resources
